@@ -1,24 +1,27 @@
-# README
+# Install
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Clone or download the project files
 
-Things you may want to cover:
+2. Install vagrant (if you don't have it)
 
-* Ruby version
+3. If on Windows, get PowerShell 6 if you don't have it
 
-* System dependencies
+4. Go to project folder in terminal
 
-* Configuration
+5. Run "vagrant up"
 
-* Database creation
+6. Run "vagrant provision" (in case it didn't provision)
 
-* Database initialization
+7. The provision should fail at some point - open Vagrantfile in a text editor
 
-* How to run the test suite
+8. The failure *should* occur at "# where the script should fail"
 
-* Services (job queues, cache servers, search engines, etc.)
+9. Run vagrant ssh
 
-* Deployment instructions
+10. Copy the commands after the failure (step 8) into the terminal
 
-* ...
+11. run "rails s" to make sure everything works
+
+12. Let me know if there's any problems
+
+    ​
