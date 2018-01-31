@@ -1,0 +1,8 @@
+Started GET "/" for 10.0.2.2 at 2018-01-31 08:24:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (4.3ms)
+Completed 200 OK in 312ms (Views: 12.4ms)
+
+
