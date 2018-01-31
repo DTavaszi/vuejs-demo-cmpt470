@@ -8,6 +8,7 @@ $script = <<SCRIPT
   # gotta put this before the upgrade, b/c it reboots and then all commands are lost
   echo "-------------------- installing postgres"
   apt-get -y install postgresql
+  apt-get -y install libpq-dev
   echo "-------------------- creating postgres vagrant role with password vagrant"
   # Create Role and login
   sudo su postgres -c "psql -c \"CREATE ROLE vagrant SUPERUSER LOGIN PASSWORD 'vagrant'\""
