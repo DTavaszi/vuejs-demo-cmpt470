@@ -58,6 +58,12 @@ $script = <<SCRIPT
 
   # nodejs is a dependency for running the server
   sudo apt-get -y install nodejs
+
+  # heroku
+  wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
+  # login to heroku
+  heroku login
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
