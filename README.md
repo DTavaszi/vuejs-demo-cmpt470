@@ -1,43 +1,30 @@
-# Heroku URL
+# vuejs-demo-cmpt470
 
-https://cmpt470-vuejs.herokuapp.com/
+> A Vue.js project
 
+## Build Setup
 
+``` bash
+# install dependencies
+npm install
 
-# Install
+# serve with hot reload at localhost:8080
+npm run dev
 
-1. Clone or download the project files
+# build for production with minification
+npm run build
 
-2. Install vagrant (if you don't have it)
+# build for production and view the bundle analyzer report
+npm run build --report
 
-3. If on Windows, get PowerShell 6 if you don't have it
+# run unit tests
+npm run unit
 
-4. Go to project folder in terminal
+# run e2e tests
+npm run e2e
 
-5. Run "vagrant up"
+# run all tests
+npm test
+```
 
-6. Run "vagrant provision" (in case it didn't provision)
-
-7. The provision should fail at some point - open Vagrantfile in a text editor
-
-8. The failure *should* occur at "# where the script should fail"
-
-9. Run vagrant ssh
-
-10. Copy the commands after the failure (step 8) into the terminal
-
-11. run "rails s" to make sure everything works
-
-    ​
-
-# Setup SSH
-
-1. Follow instructions to generate SSH:
-
-2. https://help.github.com/articles/connecting-to-github-with-ssh/
-
-   `cat ~/.ssh/id_rsa.pub` <- to print the public key to screen so you can copy it to your account settings on GitHub
-
-3. To always use SSH:
-
-   `git config --global url.ssh://git@github.com/.insteadOf https://github.com/`
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

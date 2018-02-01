@@ -2,6 +2,17 @@
 # vi: set ft=ruby :
 
 # Initial configuration
+if Vagrant::Util::Platform.windows? then
+  def running_in_admin_mode?
+    (`reg query HKU\\S-1-5-19 2>&1` =~ /ERROR/).nil?
+  end
+
+  unless running_in_admin_mode?
+    puts "This vagrant makes use of SymLinks to the host. On Windows, Administrative privileges are required to create symlinks (mklink.exe). Try again from an Administrative command prompt."
+    exit 1
+  end
+end
+
 $script = <<SCRIPT
   echo "-------------------- updating package lists"
   apt-get -y update
@@ -66,6 +77,8 @@ $script = <<SCRIPT
 
   # login to heroku
   heroku login
+
+  # for symlinks to work, (installing webpacker), need to run terminal with admin privileges if running windows
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
