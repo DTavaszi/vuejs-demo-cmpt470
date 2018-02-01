@@ -1,5 +1,7 @@
 Rails.application.configure do
-    config.webpacker.check_yarn_integrity = true  # Settings specified here will take precedence over those in config/application.rb.
+  config.webpacker.check_yarn_integrity = true  # Settings specified here will take precedence over those in config/application.rb.
+  # Make javascript_pack_tag load assets from webpack-dev-server.
+  config.x.webpacker[:dev_server_host] = 'http://localhost:8080'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

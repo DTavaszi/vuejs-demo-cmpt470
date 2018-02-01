@@ -1276,3 +1276,20 @@ Processing by StaticsController#home as HTML
 Completed 200 OK in 114ms (Views: 100.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 10.0.2.2 at 2018-02-01 10:02:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 83ms (Views: 73.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-01 10:13:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 18008ms (Views: 17993.9ms | ActiveRecord: 0.0ms)
+
+
