@@ -100,5 +100,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3035, host: 3035
 
   # Initial configuration - installs required apps
-  config.vm.provision "shell", inline: $script
+  # config.vm.provision "shell", inline: $script
 end
