@@ -1231,3 +1231,48 @@ Migrating to DeviseCreateUsers (20180201045228)
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3393872910536123610)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 10.0.2.2 at 2018-02-01 04:55:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (4.4ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /vagrant/public/packs
+Completed 401 Unauthorized in 37242ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application.css in /vagrant/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+  "application.js": "/packs/application-7f92a1e781f322119735.js",
+  "application.js.map": "/packs/application-7f92a1e781f322119735.js.map",
+  "hello_vue.css": "/packs/hello_vue-9cb5a7334a6577c3422968b9b9970b2f.css",
+  "hello_vue.css.map": "/packs/hello_vue-9cb5a7334a6577c3422968b9b9970b2f.css.map",
+  "hello_vue.js": "/packs/hello_vue-b553d5f4d3442312640f.js",
+  "hello_vue.js.map": "/packs/hello_vue-b553d5f4d3442312640f.js.map"
+}
+):
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9: 
+    10:     <%= javascript_pack_tag 'application' %>
+    11:     <%= stylesheet_pack_tag 'application' %>
+    12:   </head>
+    13: 
+    14:   <body>
+  
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__5998896167192563_70236608887780'
+Started GET "/" for 10.0.2.2 at 2018-02-01 04:58:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by StaticsController#home as HTML
+  Rendering statics/home.html.erb within layouts/application
+  Rendered statics/home.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 114ms (Views: 100.7ms | ActiveRecord: 0.0ms)
+
+
