@@ -5,28 +5,42 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-
 import Vue from 'vue'
-//import VueRouter from 'vue-router';
-import App from '../app.vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+import App from '../App'
+import Home from '../components/Home'
 import Hello from '../components/Hello'
 
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+]
+
 /*
-const router = new VueRouter({
+router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', component: App, name: 'root_path'},
-    { path: '/hello', component: Hello, name: 'hello_path'}
+    { path: '/hello', component: Hello },
+    { path: '/', component: Home }
   ]
 });
 */
 
+const router = new VueRouter({
+  mode: 'history',
+  routes
+})
+
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.body.appendChild(document.createElement('app'))
   const app = new Vue({
-    el,
-    render: h => h(Hello)
-  })
+    router
+  }).$mount('#app')
 
   console.log(app)
 })

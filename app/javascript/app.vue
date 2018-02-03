@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <header style="background-color: blue; width: 100%; height: 100px;">
+      This is my header
+    </header>
+    <transition name="fade" mode="out-in">
+     <router-view class="view"></router-view>
+    </transition>
+    <app></app>
   </div>
 </template>
 
