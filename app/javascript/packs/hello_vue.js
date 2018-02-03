@@ -5,20 +5,20 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
+console.log('Hello World from Hello Vue')
+
+//import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
-Vue.use(VueRouter)
 
 import App from '../app.vue'
 import Home from '../components/Home'
 import Hello from '../components/Hello'
 
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
 
 const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
+  { path: '/', component: App },
+  { path: '/hello', component: Hello }
 ]
 
 /*
@@ -31,19 +31,21 @@ router = new VueRouter({
 });
 */
 
-const router = new VueRouter({
+Vue.use(VueRouter)
+
+var router = new VueRouter({
   mode: 'history',
   routes
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('app'))
-  const app = new Vue({
-    router
-  }).$mount('#app')
-
-  console.log(app)
-})
+//document.addEventListener('DOMContentLoaded', () => {
+  //const el = document.body.appendChild(document.createElement('app'))
+  var app = new Vue({
+    el: '#app',
+    router,
+    // render: h => h(App)
+  })
+//})
 
 
 // The above code uses Vue without the compiler, which means you cannot

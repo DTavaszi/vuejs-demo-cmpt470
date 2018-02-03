@@ -4,7 +4,7 @@
       This is my header
     </header>
     <transition name="fade" mode="out-in">
-     <router-view class="view"></router-view>
+      <router-view class="view"></router-view>
     </transition>
     <app></app>
   </div>

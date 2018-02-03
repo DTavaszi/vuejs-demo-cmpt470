@@ -1,5 +1,8 @@
 <template>
-  <p>{{ message }}</p>
+  <div>
+    <p>{{ message }}</p>
+    <router-link to="/">Go back</router-link>
+  </div>
 </template>
 
 <script>
