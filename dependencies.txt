@@ -1,0 +1,2 @@
+# After setting up project, use this to install vuex and vue-router packages
+yarn add vuex vue-router vuex-router-sync

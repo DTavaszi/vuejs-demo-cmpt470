@@ -2,6 +2,17 @@
 # vi: set ft=ruby :
 
 # Initial configuration
+if Vagrant::Util::Platform.windows? then
+  def running_in_admin_mode?
+    (`reg query HKU\\S-1-5-19 2>&1` =~ /ERROR/).nil?
+  end
+
+  unless running_in_admin_mode?
+    puts "This vagrant makes use of SymLinks to the host. On Windows, Administrative privileges are required to create symlinks (mklink.exe). Try again from an Administrative command prompt."
+    exit 1
+  end
+end
+
 $script = <<SCRIPT
   echo "-------------------- updating package lists"
   apt-get -y update
@@ -66,6 +77,9 @@ $script = <<SCRIPT
 
   # login to heroku
   heroku login
+
+  # for symlinks to work, (installing webpacker), need to run terminal with admin privileges if running windows
+  # https://www.classandobjects.com/tutorial/using_vue_js_with_rails/ - for vue-js installation
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
@@ -83,14 +97,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # If there are issues, this port can be changed to something like 1234
   # But you have to start rails using "rails s -p 0.0.0.0"
   config.vm.network :forwarded_port, guest: 3000, host: 3000
+  config.vm.network :forwarded_port, guest: 3035, host: 3035
 
   # Initial configuration - installs required apps
-  config.vm.provision "shell", inline: $script
-
-  # Use Chef Solo to provision our virtual machine
-  config.vm.provision :chef_solo do |chef|
-    chef.add_recipe "postgresql::server"
-    chef.add_recipe "postgresql::client"
-    # chef.log_level = :debug
-  end
+  # config.vm.provision "shell", inline: $script
 end

@@ -1,79 +1,9 @@
-Started GET "/" for 10.0.2.2 at 2018-01-31 08:24:01 +0000
+Started GET "/app" for 10.0.2.2 at 2018-02-03 06:07:38 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (4.3ms)
-Completed 200 OK in 312ms (Views: 12.4ms)
-
-
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:19:11 +0000
-Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by Rails::WelcomeController#index as HTML
-Completed 500 Internal Server Error in 300ms
-
-
   
-Gem::LoadError (Specified 'sqlite3' for database adapter, but the gem is not loaded. Add `gem 'sqlite3'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
+ActionController::RoutingError (No route matches [GET] "/app"):
   
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:188:in `rescue in spec'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:185:in `spec'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:880:in `establish_connection'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_handling.rb:58:in `establish_connection'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railtie.rb:124:in `block (2 levels) in <class:Railtie>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `instance_eval'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:60:in `with_execution_control'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:65:in `execute_hook'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:50:in `block in run_load_hooks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `each'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `run_load_hooks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/base.rb:326:in `<module:ActiveRecord>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/base.rb:25:in `<top (required)>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:26:in `cleanup_view_runtime'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:43:in `render'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/implicit_render.rb:33:in `default_render'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:186:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:30:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:131:in `run_callbacks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:20:in `block in call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
@@ -88,361 +18,838 @@ Gem::LoadError (Specified 'sqlite3' for database adapter, but the gem is not loa
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
+/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.4/lib/rack/method_override.rb:22:in `call'
+/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.4/lib/rack/runtime.rb:22:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
+/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.4/lib/rack/sendfile.rb:111:in `call'
+/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/webpacker-3.2.1/lib/webpacker/dev_server_proxy.rb:18:in `perform_request'
+/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-proxy-0.6.3/lib/rack/proxy.rb:57:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/configuration.rb:225:in `call'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:624:in `handle_request'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:438:in `process_client'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:302:in `block in run'
 /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:20:34 +0000
-Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by Rails::WelcomeController#index as HTML
-Completed 500 Internal Server Error in 285ms
-
-
-  
-Gem::LoadError (Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
-  
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:188:in `rescue in spec'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:185:in `spec'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:880:in `establish_connection'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_handling.rb:58:in `establish_connection'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railtie.rb:124:in `block (2 levels) in <class:Railtie>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `instance_eval'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:60:in `with_execution_control'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:65:in `execute_hook'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:50:in `block in run_load_hooks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `each'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `run_load_hooks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/base.rb:326:in `<module:ActiveRecord>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/base.rb:25:in `<top (required)>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:26:in `cleanup_view_runtime'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:43:in `render'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/implicit_render.rb:33:in `default_render'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:186:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:30:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:131:in `run_callbacks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:20:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/configuration.rb:225:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:624:in `handle_request'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:438:in `process_client'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:302:in `block in run'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:20:47 +0000
-Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by Rails::WelcomeController#index as HTML
-Completed 500 Internal Server Error in 285ms
-
-
-  
-Gem::LoadError (Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
-  
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:188:in `rescue in spec'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:185:in `spec'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:880:in `establish_connection'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_handling.rb:58:in `establish_connection'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railtie.rb:124:in `block (2 levels) in <class:Railtie>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `instance_eval'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:60:in `with_execution_control'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:65:in `execute_hook'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:50:in `block in run_load_hooks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `each'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `run_load_hooks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/base.rb:326:in `<module:ActiveRecord>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/base.rb:25:in `<top (required)>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:26:in `cleanup_view_runtime'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:43:in `render'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/implicit_render.rb:33:in `default_render'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:186:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:30:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:131:in `run_callbacks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:20:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/configuration.rb:225:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:624:in `handle_request'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:438:in `process_client'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:302:in `block in run'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:26:12 +0000
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:07:42 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
   Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
-Completed 200 OK in 3ms (Views: 2.5ms)
+Completed 200 OK in 253ms (Views: 2.8ms)
 
 
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:32:07 +0000
-Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by Rails::WelcomeController#index as HTML
-Completed 500 Internal Server Error in 281ms
-
-
-  
-Gem::LoadError (Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord).):
-  
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:188:in `rescue in spec'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/connection_specification.rb:185:in `spec'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_adapters/abstract/connection_pool.rb:880:in `establish_connection'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/connection_handling.rb:58:in `establish_connection'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railtie.rb:124:in `block (2 levels) in <class:Railtie>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `instance_eval'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:60:in `with_execution_control'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:65:in `execute_hook'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:50:in `block in run_load_hooks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `each'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/lazy_load_hooks.rb:49:in `run_load_hooks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/base.rb:326:in `<module:ActiveRecord>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/base.rb:25:in `<top (required)>'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `block in require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:258:in `load_dependency'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/dependencies.rb:292:in `require'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:26:in `cleanup_view_runtime'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:43:in `render'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/implicit_render.rb:33:in `default_render'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:186:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/rendering.rb:30:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:131:in `run_callbacks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/callbacks.rb:19:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/rescue.rb:20:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `block in instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/notifications.rb:166:in `instrument'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/abstract_controller/base.rb:124:in `process'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:189:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_controller/metal.rb:253:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:31:in `serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:50:in `block in serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `each'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/journey/router.rb:33:in `serve'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/routing/route_set.rb:834:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/cookies.rb:613:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activerecord-5.1.4/lib/active_record/migration.rb:556:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/callbacks.rb:97:in `run_callbacks'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/callbacks.rb:24:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:135:in `call_app'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:20:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `catch'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-3.5.1/lib/web_console/middleware.rb:18:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:36:in `call_app'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `block in call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `block in tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:26:in `tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/tagged_logging.rb:69:in `tagged'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/rack/logger.rb:24:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/request_id.rb:25:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activesupport-5.1.4/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/executor.rb:12:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-5.1.4/lib/action_dispatch/middleware/static.rb:125:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/engine.rb:522:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/configuration.rb:225:in `call'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:624:in `handle_request'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:438:in `process_client'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/server.rb:302:in `block in run'
-/home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/puma-3.11.2/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:32:09 +0000
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:23:09 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 269ms (Views: 10.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:23:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 3ms (Views: 2.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:23:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 3ms (Views: 2.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:23:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
 Completed 200 OK in 3ms (Views: 2.3ms)
 
 
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:32:10 +0000
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:24:59 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.4ms)
-Completed 200 OK in 3ms (Views: 2.5ms)
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 3ms (Views: 2.0ms)
 
 
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:32:11 +0000
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:30:18 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+Completed 200 OK in 280ms (Views: 11.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:31:52 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.7ms)
+Completed 200 OK in 303ms (Views: 12.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:31:54 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 3ms (Views: 2.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:31:55 +0000
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
   Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
 Completed 200 OK in 3ms (Views: 2.1ms)
 
 
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:32:12 +0000
-Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:33:09 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 293ms (Views: 10.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 06:33:13 +0000
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
   Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
-Completed 200 OK in 3ms (Views: 2.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms)
 
 
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:32:13 +0000
-Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/" for 10.0.2.2 at 2018-02-03 07:24:05 +0000
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
-Completed 200 OK in 3ms (Views: 2.5ms)
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 267ms (Views: 10.5ms)
 
 
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:32:15 +0000
-Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Started GET "/" for 10.0.2.2 at 2018-02-03 07:24:42 +0000
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
-Completed 200 OK in 3ms (Views: 2.1ms)
+  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 296ms (Views: 12.0ms)
 
 
-Started GET "/" for 10.0.2.2 at 2018-01-31 09:32:25 +0000
-Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
-Completed 200 OK in 3ms (Views: 2.4ms)
+Started GET "/" for 10.0.2.2 at 2018-02-03 07:25:07 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 11378ms
+
+
+  
+ActionView::Template::Error (Missing partial ./_app with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/vagrant/app/views"
+):
+    11:   </head>
+    12: 
+    13:   <body>
+    14:       <%= render './app' %>
+    15:      </div>
+    16:   </body>
+    17: </html>
+  
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb___2911728902110501050_47425329057460'
+Started GET "/" for 10.0.2.2 at 2018-02-03 07:25:18 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 88ms
+
+
+  
+ActionView::Template::Error (Missing partial ./_app with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/vagrant/app/views"
+):
+    11:   </head>
+    12: 
+    13:   <body>
+    14:       <%= render './app' %>
+    15:      </div>
+    16:   </body>
+    17: </html>
+  
+app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb___2911728902110501050_70138781772680'
+Started GET "/" for 10.0.2.2 at 2018-02-03 07:25:28 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 73ms (Views: 63.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 07:26:54 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.7ms)
+Completed 200 OK in 10299ms (Views: 9963.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 07:28:20 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (6.7ms)
+Completed 200 OK in 9792ms (Views: 9500.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 07:29:26 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 58ms (Views: 51.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:00:50 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /vagrant/public/packs
+Completed 200 OK in 17841ms (Views: 17585.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:01:14 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.9ms)
+Completed 200 OK in 9896ms (Views: 9560.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:01:24 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.4ms)
+Completed 200 OK in 72ms (Views: 61.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:01:39 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 64ms (Views: 56.7ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:02:59 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.3ms)
+Completed 200 OK in 11268ms (Views: 10970.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:04:39 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.3ms)
+Completed 200 OK in 10143ms (Views: 9773.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:07:50 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.6ms)
+Completed 200 OK in 9770ms (Views: 9371.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:08:16 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 56ms (Views: 49.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:16:33 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.5ms)
+Completed 200 OK in 10073ms (Views: 9802.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:20:38 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.1ms)
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:20:46 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 9625ms (Views: 9396.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:20:51 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.4ms)
+Completed 200 OK in 73ms (Views: 66.7ms)
+
+
+Completed 200 OK in 9658ms (Views: 9651.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:21:06 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 56ms (Views: 48.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:21:52 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.8ms)
+Completed 200 OK in 9214ms (Views: 8973.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:23:11 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.5ms)
+Completed 200 OK in 10313ms (Views: 10052.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:23:24 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 64ms (Views: 56.5ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:23:32 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 66ms (Views: 58.1ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:23:40 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 65ms (Views: 57.6ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:24:15 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 10639ms (Views: 10283.9ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:24:29 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 56ms (Views: 49.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:24:33 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 57ms (Views: 49.9ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:24:43 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 56ms (Views: 49.1ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:25:12 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 53ms (Views: 46.6ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:25:43 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.1ms)
+Completed 200 OK in 9252ms (Views: 9018.0ms)
+
+
+Started GET "/app" for 10.0.2.2 at 2018-02-03 08:25:56 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"app"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 56ms (Views: 49.1ms)
+
+
+Started GET "/app" for 10.0.2.2 at 2018-02-03 08:26:23 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"app"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 66ms (Views: 57.6ms)
+
+
+Started GET "/app" for 10.0.2.2 at 2018-02-03 08:28:33 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"app"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 9471ms (Views: 9199.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:28:47 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 63ms (Views: 54.9ms)
+
+
+Started GET "/home" for 10.0.2.2 at 2018-02-03 08:28:59 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"home"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 63ms (Views: 54.4ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:29:05 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 65ms (Views: 56.0ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:35:06 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.2ms)
+Completed 200 OK in 9212ms (Views: 8968.4ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:39:16 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.6ms)
+Completed 200 OK in 9684ms (Views: 9401.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:39:30 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 67ms (Views: 59.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:43:35 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.7ms)
+Completed 200 OK in 9995ms (Views: 9719.8ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:43:49 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 65ms (Views: 55.9ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:43:53 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 65ms (Views: 56.9ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:44:10 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.0ms)
+Completed 200 OK in 10971ms (Views: 10681.1ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:45:08 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.1ms)
+Completed 200 OK in 9418ms (Views: 9164.7ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:50:35 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.1ms)
+Completed 200 OK in 9277ms (Views: 9039.2ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:51:36 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.6ms)
+Completed 200 OK in 10987ms (Views: 10648.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:51:51 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 55ms (Views: 47.5ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:51:54 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 57ms (Views: 50.0ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:56:03 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.1ms)
+Completed 200 OK in 9149ms (Views: 8920.2ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 08:56:17 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 57ms (Views: 50.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:56:20 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 57ms (Views: 49.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:57:12 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 10239ms (Views: 9963.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 08:59:36 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.3ms)
+Completed 200 OK in 9304ms (Views: 9057.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:00:37 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.3ms)
+Completed 200 OK in 10134ms (Views: 9819.2ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:00:51 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 54ms (Views: 47.8ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:09:14 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.1ms)
+Completed 200 OK in 9358ms (Views: 9122.6ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:10:29 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 9874ms (Views: 9445.6ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:12:17 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.5ms)
+Completed 200 OK in 9302ms (Views: 9058.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:12:30 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 55ms (Views: 47.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:12:59 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.2ms)
+Completed 200 OK in 10020ms (Views: 9746.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:15:18 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 9539ms (Views: 9248.7ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:15:34 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 65ms (Views: 57.5ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:16:28 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 9979ms (Views: 9701.9ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:16:41 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 63ms (Views: 55.6ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:19:45 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 9885ms (Views: 9623.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:19:59 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 66ms (Views: 56.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:20:25 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.2ms)
+Completed 200 OK in 9172ms (Views: 8944.2ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:20:39 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 48.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:23:53 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.0ms)
+Completed 200 OK in 9368ms (Views: 9118.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:24:18 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 61ms (Views: 54.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:25:41 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.2ms)
+Completed 200 OK in 9569ms (Views: 9335.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:26:27 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.1ms)
+Completed 200 OK in 9218ms (Views: 8984.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:26:39 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 47.3ms)
+
+
+Started GET "/home" for 10.0.2.2 at 2018-02-03 09:26:43 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"home"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 55ms (Views: 48.6ms)
+
+
+Started GET "/home" for 10.0.2.2 at 2018-02-03 09:30:07 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"home"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.0ms)
+Completed 200 OK in 9212ms (Views: 8963.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:30:19 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 46.6ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:33:51 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 9589ms (Views: 9316.9ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:34:05 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 62ms (Views: 54.5ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:36:55 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.5ms)
+Completed 200 OK in 9757ms (Views: 9490.9ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:37:08 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 64ms (Views: 55.8ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:38:22 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (4.0ms)
+Completed 200 OK in 10143ms (Views: 9822.4ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:39:33 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.5ms)
+Completed 200 OK in 10442ms (Views: 10104.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:40:11 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.2ms)
+Completed 200 OK in 9191ms (Views: 8954.1ms)
+
+
+Started GET "/hello" for 10.0.2.2 at 2018-02-03 09:40:25 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"hello"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 53ms (Views: 45.9ms)
+
+
+Started GET "/foo" for 10.0.2.2 at 2018-02-03 09:41:43 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"foo"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.4ms)
+Completed 200 OK in 9779ms (Views: 9513.9ms)
+
+
+Started GET "/foo" for 10.0.2.2 at 2018-02-03 09:46:43 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"foo"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 71ms (Views: 62.7ms)
+
+
+Started GET "/foo" for 10.0.2.2 at 2018-02-03 09:49:28 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"foo"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.2ms)
+Started GET "/foo" for 10.0.2.2 at 2018-02-03 09:49:32 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"foo"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.4ms)
+Completed 200 OK in 10435ms (Views: 10197.8ms)
+
+
+Completed 200 OK in 10282ms (Views: 10275.9ms)
+
+
+Started GET "/foo" for 10.0.2.2 at 2018-02-03 09:50:12 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"foo"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (2.1ms)
+Started GET "/foo" for 10.0.2.2 at 2018-02-03 09:50:14 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"foo"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.5ms)
+Completed 200 OK in 10786ms (Views: 10548.5ms)
+
+
+Completed 200 OK in 10576ms (Views: 10568.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2018-02-03 09:50:46 +0000
+Processing by HomeController#vue_app as HTML
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.3ms)
+Completed 200 OK in 53ms (Views: 46.4ms)
+
+
+Started GET "/foo" for 10.0.2.2 at 2018-02-03 09:50:59 +0000
+Processing by HomeController#vue_app as HTML
+  Parameters: {"path"=>"foo"}
+  Rendering home/vue_app.html within layouts/application
+  Rendered home/vue_app.html within layouts/application (0.2ms)
+Completed 200 OK in 55ms (Views: 47.4ms)
 
 
