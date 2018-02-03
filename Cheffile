@@ -1,6 +1,0 @@
-#!/usr/bin/env ruby
-#^syntax detection
-
-site 'https://supermarket.getchef.com/api/v1'
-cookbook 'postgresql',
-git: 'https://github.com/ChowOps/chef-postgresql'

@@ -8,7 +8,7 @@
 export default {
   data: function () {
     return {
-      message: "Welcome to Cinematronix!"
+      message: "Hello Vue!"
     }
   }
 }

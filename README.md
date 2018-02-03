@@ -1,30 +1,24 @@
-# vuejs-demo-cmpt470
+# README
 
-> A Vue.js project
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Build Setup
+Things you may want to cover:
 
-``` bash
-# install dependencies
-npm install
+* Ruby version
 
-# serve with hot reload at localhost:8080
-npm run dev
+* System dependencies
 
-# build for production with minification
-npm run build
+* Configuration
 
-# build for production and view the bundle analyzer report
-npm run build --report
+* Database creation
 
-# run unit tests
-npm run unit
+* Database initialization
 
-# run e2e tests
-npm run e2e
+* How to run the test suite
 
-# run all tests
-npm test
-```
+* Services (job queues, cache servers, search engines, etc.)
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+* Deployment instructions
+
+* ...
