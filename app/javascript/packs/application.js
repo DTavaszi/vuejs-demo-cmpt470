@@ -1,10 +1,47 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
+/* eslint no-console: 0 */
+import Vue from 'vue/dist/vue.esm'
+import VueRouter from 'vue-router'
 
-console.log('Hello World from Webpacker')
+import App from '../app.vue'
+import Home from '../components/Home'
+import Hello from '../components/Hello'
+
+
+const routes = [
+  { path: '/', component: App },
+  { path: '/hello', component: Hello }
+]
+
+Vue.use(VueRouter)
+
+var router = new VueRouter({
+  mode: 'history',
+  routes
+})
+
+new Vue({
+  el: '#app',
+  router,
+})
+
+// If the using turbolinks, install 'vue-turbolinks':
+//
+// yarn add 'vue-turbolinks'
+//
+// Then uncomment the code block below:
+//
+// import TurbolinksAdapter from 'vue-turbolinks';
+// import Vue from 'vue/dist/vue.esm'
+// import App from '../app.vue'
+//
+// Vue.use(TurbolinksAdapter)
+//
+// document.addEventListener('turbolinks:load', () => {
+//   const app = new Vue({
+//     el: '#hello',
+//     data: {
+//       message: "Can you say hello?"
+//     },
+//     components: { App }
+//   })
+// })
