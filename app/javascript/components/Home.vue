@@ -1,6 +1,8 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
+  <div>
+    <header style="background-color: blue; width: 100%; height: 100px;">
+      This is my header
+    </header>
   </div>
 </template>
 
@@ -8,7 +10,7 @@
 export default {
   data: function () {
     return {
-      message: "Hello!"
+      message: "App!"
     }
   }
 }

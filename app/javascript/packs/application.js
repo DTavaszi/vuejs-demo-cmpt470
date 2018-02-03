@@ -2,13 +2,12 @@
 import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
 
-import App from '../app.vue'
 import Home from '../components/Home'
 import Hello from '../components/Hello'
 
 
 const routes = [
-  { path: '/', component: App },
+  { path: '/', component: Home },
   { path: '/hello', component: Hello }
 ]
 
