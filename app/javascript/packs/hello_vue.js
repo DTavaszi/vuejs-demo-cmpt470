@@ -5,14 +5,27 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
+
 import Vue from 'vue'
+//import VueRouter from 'vue-router';
 import App from '../app.vue'
+import Hello from '../components/Hello'
+
+/*
+const router = new VueRouter({
+  mode: 'history',
+  routes: [
+    { path: '/', component: App, name: 'root_path'},
+    { path: '/hello', component: Hello, name: 'hello_path'}
+  ]
+});
+*/
 
 document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('hello'))
+  const el = document.body.appendChild(document.createElement('app'))
   const app = new Vue({
     el,
-    render: h => h(App)
+    render: h => h(Hello)
   })
 
   console.log(app)
@@ -32,22 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
 //   <app></app>
 // </div>
 
+/*
+ import Vue from 'vue/dist/vue.esm'
+ import App from '../app.vue'
 
-// import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
-//
-// document.addEventListener('DOMContentLoaded', () => {
-//   const app = new Vue({
-//     el: '#hello',
-//     data: {
-//       message: "Can you say hello?"
-//     },
-//     components: { App }
-//   })
-// })
-//
-//
-//
+ document.addEventListener('DOMContentLoaded', () => {
+   const app = new Vue({
+     el: '#hello',
+     data: {
+       message: "Can you say hello?"
+     },
+     components: { App }
+   })
+ })
+*/
+
+
 // If the using turbolinks, install 'vue-turbolinks':
 //
 // yarn add 'vue-turbolinks'
