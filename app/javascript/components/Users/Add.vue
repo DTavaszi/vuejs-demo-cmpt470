@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <div id="get-user">
-      <input class="form-control"
-              v-model="newUser.name"
-              placeholder="Username">
-      <input class="form-control"
-              v-model="newUser.admin"
-              type="checkbox">
-      <button class="btn btn-primary" @click="addUser"> Add User </button>
-    </div>
+  <div id="get-user">
+    <input class="form-control"
+            v-model="newUser.name"
+            placeholder="Username">
+    <input class="form-control"
+            v-model="newUser.admin"
+            type="checkbox">
+    <button class="btn btn-primary" @click="addUser"> Add User </button>
   </div>
 </template>
 

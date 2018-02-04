@@ -6,11 +6,13 @@ import store from '../store/store.js'
 
 import Home from '../components/Home'
 import Hello from '../components/Hello'
+import Login from '../components/Login'
 
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/hello', component: Hello }
+  { path: '/hello', component: Hello },
+  { path: '/login', component: Login}
 ]
 
 Vue.use(VueRouter)
