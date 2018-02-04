@@ -1,7 +1,6 @@
 <template>
   <div>
     <p>{{ message }}</p>
-    <p>{{ count }}</p>
     <router-link to="/">Go back</router-link>
   </div>
 </template>

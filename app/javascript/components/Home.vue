@@ -3,19 +3,18 @@
     <header style="background-color: blue; width: 100%; height: 100px;">
       This is my header
     </header>
-    <p>{{ count }}</p>
-    <p>
-      <button @click="increment">+</button>
-      <button @click="decrement">-</button>
+    <p style="background-green;">{{ count }}</p>
     </p>
   </div>
 </template>
 
 <script>
+import * as type from '../store/mutationTypes/types'
+
 export default {
-  data: function () {
-    return {
-      message: "App!"
+  computed: {
+    count: function() {
+      return this.$store.state.count;
     }
   }
 }

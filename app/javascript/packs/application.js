@@ -1,7 +1,8 @@
 /* eslint no-console: 0 */
 import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
-import Vuex from 'vuex'
+import store from '../store/store.js'
+
 
 import Home from '../components/Home'
 import Hello from '../components/Hello'
@@ -13,21 +14,11 @@ const routes = [
 ]
 
 Vue.use(VueRouter)
-Vue.use(Vuex)
+
 
 var router = new VueRouter({
   mode: 'history',
   routes
-})
-
-const store = new Vuex.Store({
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment: state => state.count++,
-    decrement: state => state.count--
-  }
 })
 
 new Vue({
@@ -37,14 +28,6 @@ new Vue({
   computed: {
     count: function() {
       return store.state.count
-    }
-  },
-  methods: {
-    increment () {
-      store.commit('increment')
-    },
-    decrement () {
-      store.commit('decrement')
     }
   }
 })
