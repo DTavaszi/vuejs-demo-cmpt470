@@ -9,13 +9,15 @@
     <router-link to="/hello">Go back</router-link>
     <div id="get-user">
       <input class="form-control"
-              :value="newUser"
-              @change="getUser"
+              v-model="newUser.name"
               placeholder="Username">
+      <input class="form-control"
+              v-model="newUser.admin"
+              type="checkbox">
       <button class="btn btn-primary" @click="addUser"> Add User </button>
     </div>
-    <div id="current-users">
-      <h3 v-if="users.length > 0"> Current ({{ users.length }}) </h3>
+    <div id="current-users" v-if="users.length > 0">
+      <h3> Current ({{ users.length }}) </h3>
       <ul class="list-group">
         <li class="list-group-item" v-for="user in users">
           {{ user }}
@@ -35,6 +37,12 @@ export default {
     },
     newUser: function() {
       return this.$store.getters.newUser
+    },
+    name: function() {
+      return this.$store.getters.newUser.name
+    },
+    admin: function() {
+      return this.$store.getters.newUser.admin
     },
     users: function() {
       return this.$store.getters.users

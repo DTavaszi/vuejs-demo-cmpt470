@@ -6,7 +6,10 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     users: [],
-    newUser: '',
+    newUser: {
+      name: '',
+      admin: false
+    },
     count: 0
   },
   mutations: {
@@ -14,8 +17,8 @@ const store = new Vuex.Store({
     decrement: state => state.count--,
     ADD_USER: function(state) {
       state.users.push({
-        user: state.newUser,
-        admin: false
+        name: state.newUser.name,
+        admin: state.newUser.admin
       })
     },
     GET_USER: function(state, user) {
