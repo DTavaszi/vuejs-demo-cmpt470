@@ -3,6 +3,11 @@
     <header style="background-color: blue; width: 100%; height: 100px;">
       This is my header
     </header>
+    <p>{{ count }}</p>
+    <p>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+    </p>
   </div>
 </template>
 
