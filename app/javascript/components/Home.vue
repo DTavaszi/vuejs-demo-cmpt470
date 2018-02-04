@@ -7,6 +7,21 @@
     <button @click="decrement">-</button>
     <button @click="increment">+</button>
     <router-link to="/hello">Go back</router-link>
+    <div id="get-user">
+      <input class="form-control"
+              :value="newUser"
+              @change="getUser"
+              placeholder="Username">
+      <button class="btn btn-primary" @click="addUser"> Add User </button>
+    </div>
+    <div id="current-users">
+      <h3 v-if="users.length > 0"> Current ({{ users.length }}) </h3>
+      <ul class="list-group">
+        <li class="list-group-item" v-for="user in users">
+          {{ user }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -17,6 +32,12 @@ export default {
   computed: {
     count: function() {
       return this.$store.state.count
+    },
+    newUser: function() {
+      return this.$store.getters.newUser
+    },
+    users: function() {
+      return this.$store.getters.users
     }
   },
   methods: {
@@ -25,6 +46,12 @@ export default {
     },
     decrement: function() {
       this.$store.commit(type.Decrement)
+    },
+    getUser: function(e) {
+      this.$store.dispatch('getUser', e.target.value)
+    },
+    addUser: function() {
+      this.$store.dispatch('addUser')
     }
   }
 }
