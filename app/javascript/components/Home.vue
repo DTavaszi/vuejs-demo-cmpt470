@@ -3,7 +3,8 @@
     <header style="background-color: blue; width: 100%; height: 100px;">
       This is my header
     </header>
-    <router-link to="/hello">Go back</router-link>
+    <router-link to="/hello">Hello</router-link>
+    <router-link to="/login">Login</router-link>
     <Users></Users>
   </div>
 </template>
