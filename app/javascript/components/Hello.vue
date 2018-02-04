@@ -1,15 +1,15 @@
 <template>
   <div>
-    <p>{{ message }}</p>
+    <p>{{ count }}</p>
     <router-link to="/">Go back</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  data: function () {
-    return {
-      message: "Hello!"
+  computed: {
+    count: function() {
+      return this.$store.state.count
     }
   }
 }
