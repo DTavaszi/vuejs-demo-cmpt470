@@ -38,12 +38,6 @@ export default {
     newUser: function() {
       return this.$store.getters.newUser
     },
-    name: function() {
-      return this.$store.getters.newUser.name
-    },
-    admin: function() {
-      return this.$store.getters.newUser.admin
-    },
     users: function() {
       return this.$store.getters.users
     }

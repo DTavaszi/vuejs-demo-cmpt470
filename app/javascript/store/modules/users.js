@@ -1,29 +1,12 @@
-import Vue from 'vue/dist/vue.esm'
-import Vuex from 'vuex'
-
-import users from './modules/users'
-
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
-  modules: {
-    users
-  }
-})
-
-/*
-const store = new Vuex.Store({
+const users = {
   state: {
     users: [],
     newUser: {
       name: '',
       admin: false
-    },
-    count: 0
+    }
   },
   mutations: {
-    increment: state => state.count++,
-    decrement: state => state.count--,
     ADD_USER: function(state) {
       state.users.push({
         name: state.newUser.name,
@@ -35,12 +18,6 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    increment (context) {
-      context.commit('increment')
-    },
-    decrement (context) {
-      context.commit('decrement')
-    },
     getUser ({commit}, user) {
       commit('GET_USER')
     },
@@ -52,7 +29,6 @@ const store = new Vuex.Store({
     newUser: state => state.newUser,
     users: state => state.users
   }
-})
+}
 
-*/
-export default store
+export default users
