@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 3035, host: 3035
 
   # Initial configuration - installs required apps
-  config.vm.provision "shell", inline: <<SCRIPT
+  config.vm.provision "shell", inline: <<-SHELL
     echo "-------------------- updating package lists"
     apt-get -y update
     # gotta put this before the upgrade, b/c it reboots and then all commands are lost
@@ -67,9 +67,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # where the script should fail
     # if it does, do 'vagrant ssh' and copy paste the rest in the terminal
     # restart shell
-  SCRIPT
+  SHELL
 
-  config.vm.provision "shell", inline: <<SCRIPT
+  config.vm.provision "shell", inline: <<-SHELL
     # add 'install' option to rbenv
     git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
@@ -99,5 +99,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # for symlinks to work, (installing webpacker), need to run terminal with admin privileges if running windows
     # https://www.classandobjects.com/tutorial/using_vue_js_with_rails/ - for vue-js installation
-  SCRIPT
+  SHELL
 end
