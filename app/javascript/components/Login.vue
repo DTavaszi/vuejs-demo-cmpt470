@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       loginDetails: {
-        residentID: '',
+        username: '',
         password: ''
       }
     }
@@ -28,18 +28,24 @@ export default {
       var app = this;
       loginService.login(this.loginDetails)
       .then(function(res) {
-        if (res.status === "success") {
+        if (res.status == 200) { // Not the smoothest implementation
+          console.log('logged in')
           authUser.data = res.data
           authUser.token = res.token
           app.$store.state.isLoggedIn = true
-          window.localStorage.setItem('lbUser', JSON.stringify(authUser))
+          window.localStorage.setItem('lbUser', authUser)
 
+          /* Use for setting data
           if(authUser.data.role_id === 'ADMIN') {
             app.$router.push('/admin')
           }
           else {
             app.$store.state.isLoggedIn = false
+            console.log('did not log in')
           }
+          */
+        } else {
+          console.log('not logged in')
         }
       })
       .catch(function(err) {

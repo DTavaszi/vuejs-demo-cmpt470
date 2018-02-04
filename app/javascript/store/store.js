@@ -8,6 +8,9 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   modules: {
     users
+  },
+  state: {
+    isLoggedIn: !!localStorage.getItem('lbUser')
   }
 })
 
