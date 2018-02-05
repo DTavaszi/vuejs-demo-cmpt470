@@ -11,8 +11,7 @@ export default {
         }
       })
       .then(function(res) {
-        console.log("result object keys: " + Object.keys(res));
-        resolve(res);
+        resolve(res)
       })
       .catch(function(err) {
         reject(err.response.data)
