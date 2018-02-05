@@ -25,6 +25,7 @@ export default {
     }
   },
   created: function() {
+    var app = this
     console.log("querying users...")
     axios.get(API_ENDPOINT + '/users/admin', null, {
       headers: {
@@ -33,12 +34,16 @@ export default {
     })
     .then(function(res) {
       console.log("done.")
-      this.users = response.data
+      console.log("Data parsing: ")
+      console.log(res.data)
+      app.$store.dispatch('setUsers', res.data)
     })
+    /*
     .catch(function(err) {
       console.log("error!")
       this.errors.push(err)
     })
+    */
   }
 }
 </script>

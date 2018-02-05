@@ -15,6 +15,9 @@ const users = {
     },
     GET_USER: function(state, user) {
       state.newUser = user
+    },
+    SET_USERS: function(state, users) {
+      state.users = users
     }
   },
   actions: {
@@ -23,6 +26,9 @@ const users = {
     },
     addUser ({commit}, user) {
       commit('ADD_USER', user)
+    },
+    setUsers({commit}, users) {
+      commit('SET_USERS', users)
     }
   },
   getters: {
