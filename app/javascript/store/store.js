@@ -10,6 +10,7 @@ const store = new Vuex.Store({
     users
   },
   state: {
+    // Initial condition. If window is refreshed, then check if there's a login token already
     isLoggedIn: !!localStorage.getItem('lbUser')
   }
 })

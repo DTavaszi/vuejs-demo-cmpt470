@@ -10,6 +10,9 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { API_ENDPOINT, getHeader } from 'app.config'
+
 export default {
   computed: {
     users: function() {
@@ -20,6 +23,22 @@ export default {
     getUser: function(e) {
       this.$store.dispatch('getUser', e.target.value)
     }
+  },
+  created: function() {
+    console.log("querying users...")
+    axios.get(API_ENDPOINT + '/users/admin', null, {
+      headers: {
+        'Content-Type': 'application/json' // Force json response
+      }
+    })
+    .then(function(res) {
+      console.log("done.")
+      this.users = response.data
+    })
+    .catch(function(err) {
+      console.log("error!")
+      this.errors.push(err)
+    })
   }
 }
 </script>

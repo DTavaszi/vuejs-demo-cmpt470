@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }, defaults: { format: :json }
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    admin: 'users/admin'
+  }, defaults: { format: :json }
+
+  namespace :users do
+    resources :admin, defaults: { format: :json }
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
