@@ -15,7 +15,7 @@ import loginService from './Login/loginService'
 import { set_auth_token } from 'app.config'
 
 export default {
-  data() {
+  data: function() {
     return {
       loginDetails: {
         username: '',
