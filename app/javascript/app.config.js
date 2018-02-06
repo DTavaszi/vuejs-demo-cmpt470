@@ -18,10 +18,14 @@ export const HTTP = axios.create({
   HEADERS
 })
 
-export const remove_auth_token = function() {
+export const remove_auth_token = function(context) {
+  console.log("Logged out.")
   window.localStorage.removeItem(AUTH_TOKEN)
+  context.$store.state.isLoggedIn = false;
 }
 
-export const set_auth_token = function(token) {
+export const set_auth_token = function(context, token) {
+  console.log("Logged in.")
   window.localStorage.setItem(AUTH_TOKEN, token)
+  context.$store.state.isLoggedIn = true;
 }
