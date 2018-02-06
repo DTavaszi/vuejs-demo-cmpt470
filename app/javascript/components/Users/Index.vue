@@ -4,20 +4,27 @@
     <ul class="list-group">
       <li class="list-group-item" v-for="user in users">
         {{ user }}
+        <button @click="removeUser(user)">&times;</button>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import HTTPService from 'HTTPService'
-
+import userRequests from './userRequests'
 const GET_USERS_PATH = '/users/admin'
+
+import HTTPService from 'HTTPService'
 
 export default {
   computed: {
     users: function() {
       return this.$store.getters.users
+    }
+  },
+  methods: {
+    removeUser: function(user) {
+      userRequests.removeUser(this, user)
     }
   },
   created: function() {

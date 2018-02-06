@@ -14,8 +14,6 @@
 <script>
 import userRequests from './userRequests'
 
-const CREATE_USER_PATH = '/users/admin'
-
 export default {
   data: function() {
     return {

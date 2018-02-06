@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import HTTPService from 'HTTPService'
 import { set_auth_token, remove_auth_token } from 'app.config'
 
