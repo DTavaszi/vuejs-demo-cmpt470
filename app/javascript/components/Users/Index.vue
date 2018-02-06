@@ -29,17 +29,11 @@ export default {
     console.log("querying users...")
     HTTP.get('/users/admin')
     .then(function(res) {
-      console.log("done.")
-      console.log("Data parsing: ")
-      console.log(res.data)
       app.$store.dispatch('setUsers', res.data)
     })
-    /*
-    .catch(function(err) {
-      console.log("error!")
-      this.errors.push(err)
-    }) //IMPLEMENT ME
-    */
+    .catch(function(error) {
+      console.log(error)
+    })
   }
 }
 </script>

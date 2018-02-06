@@ -3,9 +3,18 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    if current_user
+      respond_to do |format|
+        format.json { render :json => current_user, status: :ok }
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => { success: false }, status: :unauthorized }
+      end
+    end
+   # super
+  end
 
   # POST /resource/sign_in
   def create

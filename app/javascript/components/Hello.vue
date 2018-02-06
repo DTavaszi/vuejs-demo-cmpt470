@@ -22,7 +22,7 @@ export default {
   },
   components: {
     logoutButton
-  }
+  },
 }
 </script>
 

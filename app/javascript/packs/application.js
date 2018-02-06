@@ -1,13 +1,14 @@
 /* eslint no-console: 0 */
 import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
-import store from '../store/store.js'
+import store from 'store/store.js'
 
 
-import Home from '../components/Home'
-import Hello from '../components/Hello'
-import Login from '../components/Login'
+import Home from 'components/Home'
+import Hello from 'components/Hello'
+import Login from 'components/Login'
 
+import authentication from 'components/Login/authentication'
 
 const routes = [
   { path: '/', component: Home },
@@ -31,6 +32,9 @@ new Vue({
     count: function() {
       return store.state.count
     }
+  },
+  created: function() {
+    authentication.identifyLoggedUser(this)
   }
 })
 

@@ -10,7 +10,6 @@ export default {
         resolve(response)
       })
       .catch(function(error) {
-        console.log("Server could not be reached.")
         reject(error.response.data)
       })
     })
@@ -22,7 +21,17 @@ export default {
         resolve(response)
       })
       .catch(function(error) {
-        console.log("Server could not be reached.")
+        reject(error.response.data)
+      })
+    })
+  },
+  getLoggedUser() {
+    return new Promise(function(resolve, reject) {
+      HTTP.get('/users/sign_in')
+      .then(function(response) {
+        resolve(response)
+      })
+      .catch(function(error) {
         reject(error.response.data)
       })
     })

@@ -1,10 +1,6 @@
 const users = {
   state: {
-    users: [],
-    currentUser: {
-      name: 'Default',
-      admin: false
-    }
+    users: []
   },
   mutations: {
     ADD_USER: function(state, user) {
@@ -25,7 +21,6 @@ const users = {
   getters: {
     newUser: state => state.newUser,
     users: state => state.users,
-    currentUser: state => state.currentUser
   }
 }
 
