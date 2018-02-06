@@ -6,14 +6,14 @@
       <input type="password" placeholder="Password" v-model="loginDetails.password">
       <button type="submit" value="login"> Login </button>
     </form>
-    <button @click="logoutUser()"> Logout </button>
     <router-link to="/">Go back</router-link>
   </div>
 </template>
 
 <script>
 import loginService from './Login/loginService'
-import { remove_auth_token, set_auth_token } from 'app.config'
+import { set_auth_token } from 'app.config'
+
 export default {
   data() {
     return {
@@ -33,24 +33,13 @@ export default {
           authUser.token = response.token
 
           set_auth_token(app, authUser)
+          app.$router.push('/')
         })
         .catch(function(error) {
           console.log("Invalid credentials.")
           console.log(error.data)
         })
       console.log("Attempting login...")
-    },
-    logoutUser: function() {
-      var app = this
-      loginService.logout()
-        .then(function(response) {
-          remove_auth_token(app)
-        })
-        .catch(e => {
-          console.log("Error logging out.")
-          console.log(e)
-        })
-      console.log("Attempting logout...")
     }
   }
 }

@@ -4,6 +4,10 @@ const users = {
     newUser: {
       name: '',
       admin: false
+    },
+    currentUser: {
+      name: 'Default',
+      admin: false
     }
   },
   mutations: {
@@ -33,7 +37,8 @@ const users = {
   },
   getters: {
     newUser: state => state.newUser,
-    users: state => state.users
+    users: state => state.users,
+    currentUser: state => state.currentUser
   }
 }
 

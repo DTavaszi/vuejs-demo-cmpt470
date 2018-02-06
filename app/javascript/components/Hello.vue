@@ -1,16 +1,27 @@
 <template>
   <div>
-    <p>{{ count }}</p>
-    <router-link to="/">Go back</router-link>
+    <p v-if="loggedIn">
+      Hello {{ user.name }}
+      <logoutButton></logoutButton>
+    </p>
+    <p v-else><router-link to="/login">Login</router-link></p>
   </div>
 </template>
 
 <script>
+import logoutButton from './Login/logoutButton'
+
 export default {
   computed: {
-    count: function() {
-      return this.$store.state.count
+    user: function() {
+      return this.$store.getters.currentUser
+    },
+    loggedIn: function() {
+      return this.$store.getters.isLoggedIn
     }
+  },
+  components: {
+    logoutButton
   }
 }
 </script>
