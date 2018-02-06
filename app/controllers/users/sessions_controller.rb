@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+ # frozen_string_literal: true
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
@@ -12,9 +12,9 @@ class Users::SessionsController < Devise::SessionsController
     user = User.find_by(:username => params[:session][:username])
 
     if user && user.valid_password?(params[:session][:password])
-      puts "valid password"
+      puts "Valid password"
       sign_in("user", user)
-      puts "signed in"
+      puts "Signed in"
       respond_to do |format|
         format.json { render :json => { success: true }, status: :ok }
       end
@@ -27,16 +27,30 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    puts "Found user. Logging out: #{ current_user.try(:username) }"
+
+    sign_out(current_user)
+    respond_to do |format|
+      format.json { render :json => { message: "Signed out successfully." }, status: :ok}
+    end
+   # super
+  end
 
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+  #   devise_
+
+  def verify_signed_out_user
+    if all_signed_out?
+      puts "Not currently logged in"
+      respond_to do |format|
+        format.json { render :json => { message: "Not logged in." }, status: :unauthorized }
+      end
+    end
+  end
 
   def invalid_login_attempt
     puts "invalid login attempt"

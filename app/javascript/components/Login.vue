@@ -13,7 +13,7 @@
 
 <script>
 import loginService from './Login/loginService'
-
+import { remove_auth_token, set_auth_token } from 'app.config'
 export default {
   data() {
     return {
@@ -28,28 +28,46 @@ export default {
       const authUser = {}
       var app = this
       loginService.login(app.loginDetails)
-      .then(function(res) {
-        authUser.data = res.data
-        authUser.token = res.token
-        window.localStorage.setItem('lbUser', authUser)
+      .then(function(response) {
+        console.log("Response data:")
+        console.log(response.data);
+        console.log(response.status);
+        console.log(response.statusText);
+        console.log(response.headers);
+        console.log(response.config);
+        console.log("---------------------------------")
+        authUser.data = response.data
+        authUser.token = response.token
+        //window.localStorage.setItem('lbUser', authUser)
+        set_auth_token(authUser)
+
         // Override state - otherwise it won't know it's logged in until window refreshes
         app.$store.state.isLoggedIn = true
         console.log(authUser.data + " - " + authUser.token)
-        console.log("logged in: " + app.$store.state.isLoggedIn)
+        console.log("Logged in: " + app.$store.state.isLoggedIn)
       })
-      .catch(function(err) {
-        console.log(err.data)
+      .catch(function(error) {
+        console.log("Invalid credentials.")
+        console.log(error.data)
       })
 
-      console.log("please wait...")
+      console.log("Attempting login. Please wait...")
     },
     logoutUser: function() {
-      console.log("logging out")
-      localStorage.removeItem('lbUser')
+      var app = this
+      console.log("Logging out.")
+      loginService.logout()
+      .then(function(response) {
+        remove_auth_token()
+        app.$store.state.isLoggedIn = false
+        console.log("Logged in: " + app.$store.state.isLoggedIn)
+      })
+      .catch(e => {
+        console.log("Error logging out")
+        console.log(e)
+      })
 
-      // Override state - otherwise it won't know it's logged out until window refreshes
-      this.$store.state.isLoggedIn = false
-      console.log("logged in: " + this.$store.state.isLoggedIn)
+      console.log("Attempting logout. Please wait...")
     }
   }
 }

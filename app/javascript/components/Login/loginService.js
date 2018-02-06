@@ -1,20 +1,29 @@
 import Vue from 'vue'
 import axios from 'axios'
-import { API_ENDPOINT, getHeader } from 'app.config'
+import { HTTP } from 'app.config'
 
 export default {
-  login(value, cb) {
+  login(value) {
     return new Promise(function(resolve, reject) {
-      axios.post(API_ENDPOINT + '/users/sign_in', value, {
-        headers: {
-          'Content-Type': 'application/json' // Force json response
-        }
+      HTTP.post('/users/sign_in', value)
+      .then(function(response) {
+        resolve(response)
       })
-      .then(function(res) {
-        resolve(res)
+      .catch(function(error) {
+        console.log("Server could not be reached.")
+        reject(error.response.data)
       })
-      .catch(function(err) {
-        reject(err.response.data)
+    })
+  },
+  logout() {
+    return new Promise(function(resolve, reject) {
+      HTTP.delete('/users/sign_out')
+      .then(function(response) {
+        resolve(response)
+      })
+      .catch(function(error) {
+        console.log("Server could not be reached.")
+        reject(error.response.data)
       })
     })
   }

@@ -11,7 +11,7 @@
 
 <script>
 import axios from 'axios'
-import { API_ENDPOINT, getHeader } from 'app.config'
+import { HTTP } from 'app.config'
 
 export default {
   computed: {
@@ -27,11 +27,7 @@ export default {
   created: function() {
     var app = this
     console.log("querying users...")
-    axios.get(API_ENDPOINT + '/users/admin', null, {
-      headers: {
-        'Content-Type': 'application/json' // Force json response
-      }
-    })
+    HTTP.get('/users/admin')
     .then(function(res) {
       console.log("done.")
       console.log("Data parsing: ")
@@ -42,7 +38,7 @@ export default {
     .catch(function(err) {
       console.log("error!")
       this.errors.push(err)
-    })
+    }) //IMPLEMENT ME
     */
   }
 }
