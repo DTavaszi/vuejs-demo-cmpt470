@@ -10,8 +10,9 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { HTTP } from 'app.config'
+import HTTPService from 'HTTPService'
+
+const GET_USERS_PATH = '/users/admin'
 
 export default {
   computed: {
@@ -19,15 +20,10 @@ export default {
       return this.$store.getters.users
     }
   },
-  methods: {
-    getUser: function(e) {
-      this.$store.dispatch('getUser', e.target.value)
-    }
-  },
   created: function() {
     var app = this
     console.log("querying users...")
-    HTTP.get('/users/admin')
+    HTTPService.get(GET_USERS_PATH)
     .then(function(res) {
       app.$store.dispatch('setUsers', res.data)
     })

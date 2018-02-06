@@ -1,14 +1,17 @@
 import Vue from 'vue'
-
-import loginService from './loginService'
+import HTTPService from 'HTTPService'
 import { set_auth_token, remove_auth_token } from 'app.config'
+
+const LOGIN_PATH = '/users/sign_in'
+const LOGOUT_PATH = '/users/sign_out'
+const GET_LOGGED_USER_PATH = '/users/sign_in'
 
 export default {
   login(context, loginDetails) {
     console.log("Attempting login...")
     var app = context
     const authUser = {}
-    loginService.login(loginDetails)
+    HTTPService.post(LOGIN_PATH, loginDetails)
       .then(function(response) {
         authUser.data = response.data
         authUser.token = response.token
@@ -23,7 +26,7 @@ export default {
       })
   },
   logout(context) {
-    loginService.logout()
+    HTTPService.delete(LOGOUT_PATH)
       .then(function(response) {
         remove_auth_token(context)
       })
@@ -33,7 +36,7 @@ export default {
       })
   },
   identifyLoggedUser(context) {
-    loginService.getLoggedUser()
+    HTTPService.get(GET_LOGGED_USER_PATH)
       .then(function(response) {
         context.$store.dispatch('setLoggedIn', true)
         context.$store.dispatch('setCurrentUser', response.data)

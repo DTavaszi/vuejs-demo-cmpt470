@@ -1,6 +1,8 @@
 <template>
   <div id="get-user">
+    <input class="form-control" v-model="newUser.email" placeholder="Email">
     <input class="form-control" v-model="newUser.username" placeholder="Username">
+    <input class="form-control" v-model="newUser.password" placeholder="Password (min. 6)">
     <label>
       <input class="form-control" v-model="newUser.admin" type="checkbox">
       Admin
@@ -10,13 +12,16 @@
 </template>
 
 <script>
-import * as type from 'store/mutationTypes/types'
+import userRequests from './userRequests'
+
+const CREATE_USER_PATH = '/users/admin'
 
 export default {
   data: function() {
     return {
       newUser: {
         email: '',
+        password: '',
         username: '',
         admin: false
       }
@@ -24,7 +29,7 @@ export default {
   },
   methods: {
     addUser: function() {
-      this.$store.dispatch('addUser', this.newUser)
+      userRequests.addUser(this, this.newUser)
     }
   }
 }

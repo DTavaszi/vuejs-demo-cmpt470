@@ -3,9 +3,9 @@ import axios from 'axios'
 import { HTTP } from 'app.config'
 
 export default {
-  login(value) {
+  post(url, value) {
     return new Promise(function(resolve, reject) {
-      HTTP.post('/users/sign_in', value)
+      HTTP.post(url, value)
       .then(function(response) {
         resolve(response)
       })
@@ -14,9 +14,9 @@ export default {
       })
     })
   },
-  logout() {
+  delete(url, value) {
     return new Promise(function(resolve, reject) {
-      HTTP.delete('/users/sign_out')
+      HTTP.delete(url, value)
       .then(function(response) {
         resolve(response)
       })
@@ -25,9 +25,9 @@ export default {
       })
     })
   },
-  getLoggedUser() {
+  get(url) {
     return new Promise(function(resolve, reject) {
-      HTTP.get('/users/sign_in')
+      HTTP.get(url)
       .then(function(response) {
         resolve(response)
       })
