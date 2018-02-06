@@ -12,9 +12,6 @@
 
 <script>
 import userRequests from './userRequests'
-const GET_USERS_PATH = '/users/admin'
-
-import HTTPService from 'HTTPService'
 
 export default {
   computed: {
@@ -28,15 +25,7 @@ export default {
     }
   },
   created: function() {
-    var app = this
-    console.log("querying users...")
-    HTTPService.get(GET_USERS_PATH)
-    .then(function(res) {
-      app.$store.dispatch('setUsers', res.data)
-    })
-    .catch(function(error) {
-      console.log(error)
-    })
+    userRequests.getUsers(this)
   }
 }
 </script>
