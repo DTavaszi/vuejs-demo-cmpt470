@@ -58,7 +58,7 @@ export default {
       friendRequests.removeFriend(this, friend)
     },
     acceptFriend: function(friend) {
-      friendRequests.addFriend(this, this.getUserByID(friend.id))
+      friendRequests.addFriend(this, this.getUserByID(friend.sender_id))
     },
     // Calculates friendship relationships. Both parties must friend each other to become friends.
     updateFriendships: function() {
@@ -73,11 +73,11 @@ export default {
 
       if (friends.length > 0) {
         friend_requests = friend_requests.filter(function(request) {
-          return !!friends.find(friend => friend.sender_id != request.recipient_id)
+          return !(!!friends.find(friend => friend.sender_id == request.recipient_id))
         })
-      
+
         friends_pending = friends_pending.filter(function(pending) {
-          return !!friends.find(friend => friend.sender_id != pending.sender_id)
+          return !(!!friends.find(friend => friend.sender_id == pending.sender_id))
         })
       }
 

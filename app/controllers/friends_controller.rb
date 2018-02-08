@@ -36,7 +36,11 @@ class FriendsController < ApplicationController
     friend = Friend.find(params[:id])
 
     if friend
+
+      # Destroy both friendships if they exist
       friend.destroy
+      Friend.where(recipient_id: friend.sender_id, sender_id: friend.recipient_id).destroy_all
+
       respond_to do |format|
         format.json { render json: friend, status: :ok }
       end

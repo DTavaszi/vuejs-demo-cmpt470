@@ -7,7 +7,10 @@ const friends = {
       state.friends = friends
     },
     REMOVE_FRIEND: function(state, friend) {
-      state.friends = state.friends.filter(frnd => frnd.id != friend.id)
+      state.friends = state.friends.filter(function(f) {
+        return !(((f.recipient_id == friend.recipient_id) && (f.sender_id == friend.sender_id)) ||
+                ((f.recipient_id == friend.sender_id) && (f.sender_id == friend.recipient_id)))
+      })
     },
     ADD_FRIEND: function(state, friend) {
       state.friends.push( JSON.parse( JSON.stringify(friend)) ) // Fastest way to deep copy the input object
