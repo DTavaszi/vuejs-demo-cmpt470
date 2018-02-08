@@ -4,7 +4,8 @@
     <ul class="list-group">
       <li class="list-group-item" v-for="user in users">
         {{ user }}
-        <button @click="removeUser(user)">&times;</button>
+        <button @click="removeUser(user)">&times; User</button>
+        <button @click="addFriend(user)">&plus; Friend</button>
       </li>
     </ul>
   </div>
@@ -12,6 +13,7 @@
 
 <script>
 import userRequests from './userRequests'
+import friendRequests from 'components/Friends/friendRequests'
 
 export default {
   computed: {
@@ -22,6 +24,9 @@ export default {
   methods: {
     removeUser: function(user) {
       userRequests.removeUser(this, user)
+    },
+    addFriend: function(user) {
+      friendRequests.addFriend(this, user)
     }
   },
   created: function() {

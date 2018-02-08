@@ -21,11 +21,11 @@ export default {
   },
   methods: {
     removeFriend: function(friend) {
-      //userRequests.removeFriend(this, friend)
+      friendRequests.removeFriend(this, friend)
     }
   },
   created: function() {
-    // userRequests.getFriends(this)
+    friendRequests.getFriends(this)
   }
 }
 </script>
