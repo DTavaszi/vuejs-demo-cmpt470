@@ -1,8 +1,8 @@
 import HTTPService from 'HTTPService'
 
+const GET_USERS_PATH = '/users/admin'
 const CREATE_USER_PATH = '/users/admin'
 const DELETE_USER_PATH = '/users/admin'
-const GET_USERS_PATH = '/users/admin'
 const UPDATE_STATUS_PATH = '/users'
 
 export default {

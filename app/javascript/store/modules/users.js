@@ -1,6 +1,6 @@
 const users = {
   state: {
-    users: {}
+    users: [],
   },
   mutations: {
     ADD_USER: function(state, user) {
