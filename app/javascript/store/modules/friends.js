@@ -1,6 +1,6 @@
 const friends = {
   state: {
-    friends: [{ name: "friend1"}, { name: "friend2" }]
+    friends: []
   },
   mutations: {
     SET_FRIENDS: function(state, friends) {

@@ -1,6 +1,7 @@
 const authentication = {
   state: {
     currentUser: {
+      id: -1,
       username: 'Default',
       status: 'default status',
       email: 'email',
