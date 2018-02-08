@@ -8,11 +8,13 @@
       <router-link to="/login">Login</router-link>
       <router-link to="/register">Register</router-link>
     </p>
+    <Status></Status>
   </div>
 </template>
 
 <script>
 import logoutButton from './Login/logoutButton'
+import Status from './Users/Status'
 
 export default {
   computed: {
@@ -24,7 +26,8 @@ export default {
     }
   },
   components: {
-    logoutButton
+    logoutButton,
+    Status
   }
 }
 </script>

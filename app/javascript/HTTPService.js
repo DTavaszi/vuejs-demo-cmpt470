@@ -35,5 +35,16 @@ export default {
         reject(error.response.data)
       })
     })
+  },
+  put(url, value) {
+    return new Promise(function(resolve, reject) {
+      HTTP.put(url, value)
+      .then(function(response) {
+        resolve(response)
+      })
+      .catch(function(error) {
+        reject(error.response.data)
+      })
+    })
   }
 }

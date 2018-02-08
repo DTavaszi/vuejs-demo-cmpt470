@@ -1,34 +1,56 @@
 <template>
   <div>
-    <h1>Status</h1>
-    <form v-on:submit.prevent="loginUser()">
-      <input type="text" placeholder="status" v-model="loginDetails.email">
-      <input type="password" placeholder="Password" v-model="loginDetails.password">
-      <button type="submit" value="login"> Login </button>
-    </form>
-    <router-link to="/">Go back</router-link>
+    <p v-if="loggedIn">
+      Status:
+
+      <input @keyup.enter="updateStatus()" @keyup.esc="reset" type="text" :placeholder="placeholder" v-model="status" />
+    </p>
+
+    {{ user.status }}
   </div>
 </template>
 
 <script>
-import authentication from './Login/authentication'
+import userRequests from './userRequests'
+import { mapGetters } from 'vuex'
 
 export default {
   data: function() {
     return {
-      loginDetails: {
-        email: '',
-        password: ''
-      }
+      status: ''
+    }
+  },
+  computed: {
+      ...mapGetters({
+        oldStatus: 'currentStatus'
+    }),
+    user: function() {
+      return this.$store.getters.currentUser
+    },
+    loggedIn: function() {
+      return this.$store.getters.isLoggedIn
+    },
+    placeholder: function() {
+      return "What's on your mind, " + this.$store.getters.currentUser.username + "?"
     }
   },
   methods: {
-    loginUser: function() {
-      authentication.login(this, this.loginDetails)
+    updateStatus: function() {
+      userRequests.updateUser(this, { "status": this.status })
+    },
+    reset: function() {
+      this.status = this.oldStatus
+    }
+  },
+  watch: {
+    oldStatus: function(newVal) {
+      this.status = newVal
     }
   }
 }
 </script>
-
+  input {
+    width: 300px;
+  }
 <style scoped>
 </style>

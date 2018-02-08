@@ -26,6 +26,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # super
   end
 
+  def update
+    if current_user
+      if current_user.update(update_user_params)
+        respond_to do |format|
+          format.json { render :json => current_user, status: :ok }
+        end
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => { message: "Need to be logged in." }, status: :unauthorized }
+      end
+    end
+  end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -53,7 +67,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :status)
+  end
+
+  def update_user_params
+    params.require(:user).permit(:password, :password_confirmation, :status)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

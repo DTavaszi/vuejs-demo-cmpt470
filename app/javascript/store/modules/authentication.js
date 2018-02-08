@@ -2,7 +2,7 @@ const authentication = {
   state: {
     currentUser: {
       username: 'Default',
-      status: '',
+      status: 'default status',
       email: 'email',
       admin: false
     },
@@ -14,6 +14,9 @@ const authentication = {
     },
     SET_LOGGED_IN: function(state, status) {
       state.isLoggedIn = status
+    },
+    RESET_STATUS: function(state) {
+      state.currentUser.status = state.currentUser.status
     }
   },
   actions: {
@@ -22,11 +25,15 @@ const authentication = {
     },
     setLoggedIn({commit}, status) {
       commit('SET_LOGGED_IN', status)
+    },
+    resetStatus({commit}) {
+      commit('RESET_STATUS')
     }
   },
   getters: {
     currentUser: state => state.currentUser,
-    isLoggedIn: state => state.isLoggedIn
+    isLoggedIn: state => state.isLoggedIn,
+    currentStatus: state => state.currentUser.status
   }
 }
 
