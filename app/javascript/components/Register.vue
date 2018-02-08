@@ -1,10 +1,11 @@
 <template>
   <div>
-    <h1>Login Page</h1>
-    <form v-on:submit.prevent="loginUser()">
-      <input type="text" placeholder="Username" v-model="loginDetails.username">
-      <input type="password" placeholder="Password" v-model="loginDetails.password">
-      <button type="submit" value="login"> Login </button>
+    <h1>Registration Page</h1>
+    <form v-on:submit.prevent="register()">
+      <input type="text" placeholder="Email" v-model="newUser.email">
+      <input type="password" placeholder="Password" v-model="newUser.password">
+      <input type="password" placeholder="Password Confirmation" v-model="newUser.password_confirmation">
+      <button type="submit" value="register"> Register </button>
     </form>
     <router-link to="/">Go back</router-link>
   </div>
@@ -12,19 +13,20 @@
 
 <script>
 import authentication from './Login/authentication'
-
 export default {
   data: function() {
     return {
-      loginDetails: {
+      newUser: {
+        email: '',
         username: '',
-        password: ''
+        password: '',
+        password_confirmation: '',
       }
     }
   },
   methods: {
-    loginUser: function() {
-      authentication.login(this, this.loginDetails)
+    register: function() {
+      authentication.register(this, this.newUser)
     }
   }
 }
