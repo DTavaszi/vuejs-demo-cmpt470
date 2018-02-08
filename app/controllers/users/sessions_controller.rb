@@ -18,7 +18,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    user = User.find_by(:username => params[:session][:username])
+    user = User.find_by(:email => params[:session][:username])
 
     if user && user.valid_password?(params[:session][:password])
       puts "Valid password"

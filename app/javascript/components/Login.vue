@@ -2,7 +2,7 @@
   <div>
     <h1>Login Page</h1>
     <form v-on:submit.prevent="loginUser()">
-      <input type="text" placeholder="Username" v-model="loginDetails.username">
+      <input type="text" placeholder="Username" v-model="loginDetails.email">
       <input type="password" placeholder="Password" v-model="loginDetails.password">
       <button type="submit" value="login"> Login </button>
     </form>
@@ -17,7 +17,7 @@ export default {
   data: function() {
     return {
       loginDetails: {
-        username: '',
+        email: '',
         password: ''
       }
     }

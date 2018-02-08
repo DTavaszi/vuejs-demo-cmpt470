@@ -1,7 +1,7 @@
 <template>
   <div>
-    <header style="background-color: blue; width: 100%; height: 100px;">
-      This is my header
+    <header style="background-color: #f3f3f3; width: 100%; height: 100px;">
+      Logo. Navigation.
     </header>
     <Hello></Hello>
     <Users></Users>

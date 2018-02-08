@@ -4,6 +4,7 @@ import { set_auth_token, remove_auth_token } from 'app.config'
 const LOGIN_PATH = '/users/sign_in'
 const LOGOUT_PATH = '/users/sign_out'
 const GET_LOGGED_USER_PATH = '/users/sign_in'
+const REGISTER_USER_PATH = '/users'
 
 export default {
   login(context, loginDetails) {
@@ -44,5 +45,16 @@ export default {
         console.log("Not logged in.")
         context.$store.dispatch('setLoggedIn', false)
       })
+  },
+  register(context, newUser) {
+    HTTPService.post(REGISTER_USER_PATH, { "user": newUser })
+    .then(function(response) {
+      context.$store.dispatch('setLoggedIn', true)
+      context.$store.dispatch('setCurrentUser', response.data)
+      context.$router.push('/')
+    })
+    .catch(function(error) {
+      console.log("Registration failed.")
+    })
   }
 }

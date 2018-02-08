@@ -1,6 +1,6 @@
 <template>
   <div id="current-users" v-if="users.length > 0">
-    <h3> Current ({{ users.length }}) </h3>
+    <h3> Current Users ({{ users.length }}) </h3>
     <ul class="list-group">
       <li class="list-group-item" v-for="user in users">
         {{ user }}

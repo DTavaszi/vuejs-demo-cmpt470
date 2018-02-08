@@ -11,7 +11,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    puts 'registering user'
+    user = User.new(user_params)
+
+    if user.save
+      sign_in("user", user)
+      respond_to do |format|
+        format.json { render :json => user, status: :ok }
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => { message: "Registration failed" }, status: :bad_request }
+      end
+    end
     # super
   end
 
@@ -39,7 +50,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

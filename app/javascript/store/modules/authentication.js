@@ -1,7 +1,8 @@
 const authentication = {
   state: {
     currentUser: {
-      usernamename: 'Default',
+      username: 'Default',
+      status: '',
       email: 'email',
       admin: false
     },
@@ -12,7 +13,6 @@ const authentication = {
       state.currentUser = user
     },
     SET_LOGGED_IN: function(state, status) {
-      console.log('setting logged in to: ' + status)
       state.isLoggedIn = status
     }
   },

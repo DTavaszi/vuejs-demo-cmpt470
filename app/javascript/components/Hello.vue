@@ -1,10 +1,13 @@
 <template>
   <div>
     <p v-if="loggedIn">
-      Hello {{ user.name }}
+      Hello {{ user.username }}. Not you?
       <logoutButton></logoutButton>
     </p>
-    <p v-else><router-link to="/login">Login</router-link></p>
+    <p v-else>
+      <router-link to="/login">Login</router-link>
+      <router-link to="/register">Register</router-link>
+    </p>
   </div>
 </template>
 
@@ -22,7 +25,7 @@ export default {
   },
   components: {
     logoutButton
-  },
+  }
 }
 </script>
 

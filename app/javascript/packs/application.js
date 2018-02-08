@@ -7,13 +7,15 @@ import store from 'store/store.js'
 import Home from 'components/Home'
 import Hello from 'components/Hello'
 import Login from 'components/Login'
+import Register from 'components/Register'
 
 import authentication from 'components/Login/authentication'
 
 const routes = [
   { path: '/', component: Home },
   { path: '/hello', component: Hello },
-  { path: '/login', component: Login}
+  { path: '/login', component: Login},
+  { path: '/register', component: Register}
 ]
 
 Vue.use(VueRouter)
