@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20180208073654) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "friends", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "recipient_id"
+    t.bigint "sender_id"
+    t.bigint "recipient_id"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
