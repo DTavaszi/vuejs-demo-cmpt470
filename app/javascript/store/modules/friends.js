@@ -25,7 +25,7 @@ const friends = {
     }
   },
   getters: {
-    friends: state => state.friends
+    friendships: state => state.friends
   }
 }
 

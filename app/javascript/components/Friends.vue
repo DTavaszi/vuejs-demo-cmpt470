@@ -5,7 +5,7 @@
       <ul class="list-group">
         <li class="list-group-item" v-for="friend in friends">
           {{ friend }}
-          <button @click="removeFriend(friend)">&times;</button>
+          <button @click="removeFriend(friend)">&times; Remove</button>
         </li>
       </ul>
     </div>
@@ -15,7 +15,7 @@
       <ul class="list-group">
         <li class="list-group-item" v-for="friend in friend_requests">
           {{ friend }}
-          <button @click="removeFriend(friend)">&times;</button>
+          <button @click="removeFriend(friend)">&times; Cancel</button>
         </li>
       </ul>
     </div>
@@ -25,7 +25,7 @@
       <ul class="list-group">
         <li class="list-group-item" v-for="friend in friends_pending">
           {{ friend }}
-          <button @click="removeFriend(friend)">&times;</button>
+          <button @click="acceptFriend(friend)">✔ Accept</button>
         </li>
       </ul>
     </div>
@@ -45,20 +45,23 @@ export default {
   },
   computed: {
     friendships: function() {
-      return this.$store.getters.friends
+      return this.$store.getters.friendships
     }
   },
   watch: {
     friendships: function(newFriends, oldFriends) {
-      this.update_friendships()
+      this.updateFriendships()
     }
   },
   methods: {
     removeFriend: function(friend) {
       friendRequests.removeFriend(this, friend)
     },
+    acceptFriend: function(friend) {
+      friendRequests.addFriend(this, this.getUserByID(friend.id))
+    },
     // Calculates friendship relationships. Both parties must friend each other to become friends.
-    update_friendships: function() {
+    updateFriendships: function() {
       const user_id = this.$store.getters.currentUser.id
 
       var friend_requests = this.friendships.filter(f => f.sender_id == user_id)
@@ -68,17 +71,22 @@ export default {
         return !!friend_requests.find(request => request.recipient_id == pending.sender_id)
       })
 
-      friend_requests = friend_requests.filter(function(request) {
-        return !!friends.find(friend => friend.recipient_id != request.recipient_id)
-      })
-
-      friends_pending = friends_pending.filter(function(request) {
-        return !!friends.find(friend => friend.sender_id != request.sender_id)
-      })
+      if (friends.length > 0) {
+        friend_requests = friend_requests.filter(function(request) {
+          return !!friends.find(friend => friend.sender_id != request.recipient_id)
+        })
+      
+        friends_pending = friends_pending.filter(function(pending) {
+          return !!friends.find(friend => friend.sender_id != pending.sender_id)
+        })
+      }
 
       this.friend_requests = friend_requests
       this.friends_pending = friends_pending
       this.friends = friends
+    },
+    getUserByID: function(id) {
+      return this.$store.getters.users.find(usr => usr.id == id)
     }
   },
   created: function() {
