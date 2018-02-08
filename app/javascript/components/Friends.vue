@@ -1,14 +1,6 @@
 <template>
-  <div id="friendships" v-if="friendships.length > 0">
-    <div id="friends" v-if="friends.length > 0">
-      <h3> Current Friends ({{ friends.length }}) </h3>
-      <ul class="list-group">
-        <li class="list-group-item" v-for="friend in friends">
-          {{ friend }}
-          <button @click="removeFriend(friend)">&times; Remove</button>
-        </li>
-      </ul>
-    </div>
+  <div>
+    <userFriends :friends="friends"></userFriends>
 
     <div id="friend_requests" v-if="friend_requests.length > 0">
       <h3> Friend requests ({{ friend_requests.length }}) </h3>
@@ -34,6 +26,7 @@
 
 <script>
 import friendRequests from './Friends/friendRequests'
+import userFriends from './Friends/userFriends'
 
 export default {
   data: function() {
@@ -91,6 +84,9 @@ export default {
   },
   created: function() {
     friendRequests.getFriends(this)
+  },
+  components: {
+    userFriends
   }
 }
 </script>
