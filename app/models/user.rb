@@ -13,4 +13,12 @@ class User < ApplicationRecord
   def friendships
     sent_friendships.or(received_friendships)
   end
+
+  def all_messages
+    sent_messages.or(received_messages)
+  end
+
+  def messages_with friend_id
+    sent_messages.where(recipient_id: friend_id).or(received_messages.where(sender_id: friend_id)).last(5)
+  end
 end
