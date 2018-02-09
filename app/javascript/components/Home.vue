@@ -6,6 +6,7 @@
     <Hello></Hello>
     <Users></Users>
     <Friends></Friends>
+    <Messages></Messages>
   </div>
 </template>
 
@@ -13,12 +14,14 @@
 import Hello from './Hello'
 import Users from './Users'
 import Friends from './Friends'
+import Messages from './Messages'
 
 export default {
   components: {
     Hello,
     Users,
-    Friends
+    Friends,
+    Messages
   }
 }
 </script>
