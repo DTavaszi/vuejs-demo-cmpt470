@@ -1,10 +1,10 @@
 <template>
-  <div id="friends" v-if="friends.length > 0">
-    <h3> Current Friends ({{ friends.length }}) </h3>
+  <div id="friend_requests" v-if="friend_requests.length > 0">
+    <h3> Friend requests ({{ friend_requests.length }}) </h3>
     <ul class="list-group">
-      <li class="list-group-item" v-for="friend in friends">
+      <li class="list-group-item" v-for="friend in friend_requests">
         {{ friend }}
-        <button @click="removeFriend(friend)">&times; Remove</button>
+        <button @click="removeFriend(friend)">&times; Cancel</button>
       </li>
     </ul>
   </div>
@@ -14,7 +14,7 @@
 import friendsREST from './friendsREST'
 
 export default {
-  props: ['friends'],
+  props: ["friend_requests"],
   methods: {
     removeFriend: function(friend) {
       friendsREST.removeFriend(this, friend)

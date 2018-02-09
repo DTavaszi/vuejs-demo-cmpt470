@@ -13,7 +13,7 @@
 
 <script>
 import userRequests from './userRequests'
-import friendRequests from 'components/Friends/friendRequests'
+import friendsREST from 'components/Friends/friendsREST'
 
 export default {
   computed: {
@@ -26,7 +26,7 @@ export default {
       userRequests.removeUser(this, user)
     },
     addFriend: function(user) {
-      friendRequests.addFriend(this, user)
+      friendsREST.addFriend(this, user)
     }
   },
   created: function() {

@@ -1,32 +1,19 @@
 <template>
   <div>
     <userFriends :friends="friends"></userFriends>
-
-    <div id="friend_requests" v-if="friend_requests.length > 0">
-      <h3> Friend requests ({{ friend_requests.length }}) </h3>
-      <ul class="list-group">
-        <li class="list-group-item" v-for="friend in friend_requests">
-          {{ friend }}
-          <button @click="removeFriend(friend)">&times; Cancel</button>
-        </li>
-      </ul>
-    </div>
-
-    <div id="friends_pending" v-if="friends_pending.length > 0">
-      <h3> Friends pending ({{ friends_pending.length }}) </h3>
-      <ul class="list-group">
-        <li class="list-group-item" v-for="friend in friends_pending">
-          {{ friend }}
-          <button @click="acceptFriend(friend)">✔ Accept</button>
-        </li>
-      </ul>
-    </div>
+    <userRequests :friend_requests="friend_requests"></userRequests>
+    <userPending :friends_pending="friends_pending"></userPending>
+    <findByEmail></findByEmail>
   </div>
 </template>
 
 <script>
-import friendRequests from './Friends/friendRequests'
+import friendsREST from './Friends/friendsREST'
+
 import userFriends from './Friends/userFriends'
+import userRequests from './Friends/userRequests'
+import userPending from './Friends/userPending'
+import findByEmail from './Friends/findByEmail'
 
 export default {
   data: function() {
@@ -47,12 +34,6 @@ export default {
     }
   },
   methods: {
-    removeFriend: function(friend) {
-      friendRequests.removeFriend(this, friend)
-    },
-    acceptFriend: function(friend) {
-      friendRequests.addFriend(this, this.getUserByID(friend.sender_id))
-    },
     // Calculates friendship relationships. Both parties must friend each other to become friends.
     updateFriendships: function() {
       const user_id = this.$store.getters.currentUser.id
@@ -74,19 +55,20 @@ export default {
         })
       }
 
-      this.friend_requests = friend_requests
-      this.friends_pending = friends_pending
-      this.friends = friends
-    },
-    getUserByID: function(id) {
-      return this.$store.getters.users.find(usr => usr.id == id)
+      // Set to empty array, otherwise it will be undefined
+      this.friend_requests = (!!friend_requests ? friend_requests : [])
+      this.friends_pending = (!!friends_pending ? friends_pending : [])
+      this.friends = (!!friends ? friends : [])
     }
   },
   created: function() {
-    friendRequests.getFriends(this)
+    friendsREST.getFriends(this)
   },
   components: {
-    userFriends
+    userFriends,
+    userRequests,
+    userPending,
+    findByEmail
   }
 }
 </script>
