@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  default_scope { order(created_at: :asc) }
+  default_scope { order(id: :asc) }
   belongs_to :sender, class_name: 'User'
   belongs_to :recipient, class_name: 'User'
 

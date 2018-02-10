@@ -3,7 +3,8 @@
     <p v-if="loggedIn">
       Status:
 
-      <input @keyup.enter="updateStatus()" @keyup.esc="reset" type="text" :placeholder="placeholder" v-model="status" />
+      <input @keyup.enter="updateStatus()" @keyup.esc="reset" type="text"
+            :placeholder="placeholder" v-model="status" />
     </p>
 
     {{ user.status }}
