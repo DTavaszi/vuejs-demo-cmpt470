@@ -15,7 +15,7 @@ const messages = {
   },
   actions: {
     setMessages({commit}, messages) {
-      commit('SET_MESSAGES, messages')
+      commit('SET_MESSAGES', messages)
     },
     addMessages({commit}, messages) {
       commit('ADD_MESSAGES', messages)
@@ -28,3 +28,5 @@ const messages = {
     messages: state => state.messages
   }
 }
+
+export default messages

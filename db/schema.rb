@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180209220712) do
   create_table "messages", force: :cascade do |t|
     t.bigint "sender_id"
     t.bigint "recipient_id"
-    t.string "message"
+    t.string "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"

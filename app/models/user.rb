@@ -14,7 +14,7 @@ class User < ApplicationRecord
     sent_friendships.or(received_friendships)
   end
 
-  def all_messages
+  def messages
     sent_messages.or(received_messages)
   end
 

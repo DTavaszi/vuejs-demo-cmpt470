@@ -1,9 +1,8 @@
 <template>
   <div>
     <header style="background-color: #f3f3f3; width: 100%; height: 100px;">
-      Logo. Navigation.
+      <Hello></Hello>
     </header>
-    <Hello></Hello>
     <Users></Users>
     <Friends></Friends>
     <Messages></Messages>

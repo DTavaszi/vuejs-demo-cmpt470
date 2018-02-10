@@ -44,8 +44,12 @@ export default {
       this.message = ''
     },
     sendMessage: function() {
-      //messagesREST.addMessage()
-      console.log("Sending message: " + this.formatted_message)
+      var formatted_message = this.formatted_message
+
+      if (formatted_message.message.length > 0) {
+        messagesREST.addMessage(this, formatted_message)
+        console.log("Sending message: " + formatted_message)
+      }
     }
   }
 }

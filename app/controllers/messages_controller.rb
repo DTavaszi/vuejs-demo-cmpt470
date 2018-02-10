@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     if params[:user]
       messages = current_user.messages_with(user_params[:id])
     else
-      messages = current_user.all_messages
+      messages = current_user.messages
     end
 
     respond_to do |format|
@@ -46,6 +46,6 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:receiver_id, :message)
+    params.require(:message).permit(:recipient_id, :message)
   end
 end
