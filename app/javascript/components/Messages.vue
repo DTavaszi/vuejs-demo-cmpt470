@@ -9,7 +9,7 @@
 </template>
 
 <script>
-
+import messagesREST from './Messages/messagesREST'
 export default {
   computed: {
     messages: function() {

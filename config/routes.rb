@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :friends, defaults: { format: :json }
-  resources :messages, default: { format: :json }
+  resources :messages, defaults: { format: :json }
 
   root to: 'home#app'
   match "*path", to: "home#app", format: false, via: :get

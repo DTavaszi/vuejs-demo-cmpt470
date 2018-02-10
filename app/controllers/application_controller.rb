@@ -5,9 +5,8 @@ class ApplicationController < ActionController::Base
   def logged_in
     unless current_user
       respond_to do |format|
-        format.json { render json: { Message: "Must be logged in" } status: :unauthorized }
+        format.json { render json: { message: "Must be logged in" }, status: :unauthorized }
       end
     end
   end
-
 end

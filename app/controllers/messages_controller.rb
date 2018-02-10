@@ -1,15 +1,15 @@
 class MessagesController < ApplicationController
-  before_action :logged_in
+  before_action :logged_in, defaults: { format: :json }
 
   def index
-    if user_params[:id]
+    if params[:user]
       messages = current_user.messages_with(user_params[:id])
     else
       messages = current_user.all_messages
     end
 
     respond_to do |format|
-      format.json { render: messages, status: :ok }
+      format.json { render json: messages, status: :ok }
     end
   end
 
