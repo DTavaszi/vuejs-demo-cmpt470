@@ -6,61 +6,34 @@
       app
       v-model="drawer"
     >
-      <v-list dense>
-        <template v-for="(item, i) in items">
-          <v-layout
-            row
-            v-if="item.heading"
-            align-center
-            :key="i"
-          >
-            <v-flex xs6>
-              <v-subheader v-if="item.heading">
-                {{ item.heading }}
-              </v-subheader>
-            </v-flex>
-            <v-flex xs6 class="text-xs-center">
-              <a href="#!" class="body-2 black--text">EDIT</a>
-            </v-flex>
-          </v-layout>
-          <v-list-group v-else-if="item.children" v-model="item.model" no-action>
-            <v-list-tile slot="item" @click="">
-              <v-list-tile-action>
-                <v-icon>{{ item.model ? item.icon : item['icon-alt'] }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  {{ item.text }}
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile
-              v-for="(child, i) in item.children"
-              :key="i"
-              @click=""
-            >
-              <v-list-tile-action v-if="child.icon">
-                <v-icon>{{ child.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  {{ child.text }}
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list-group>
-          <v-list-tile v-else @click="">
-            <v-list-tile-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
-                {{ item.text }}
-              </v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </template>
-      </v-list>
+    <template>
+      <v-list subheader>
+      <v-subheader>Recent chat</v-subheader>
+        <v-list-tile avatar v-for="item in items" v-bind:key="item.title" @click="selectItem(item)">
+          <v-list-tile-avatar>
+            <img v-bind:src="item.avatar"/>
+          </v-list-tile-avatar>
+          <v-list-tile-content>
+            <v-list-tile-title v-html="item.title"></v-list-tile-title>
+          </v-list-tile-content>
+          <v-list-tile-action>
+            <v-icon v-bind:color="item.active ? 'teal' : 'grey'">chat_bubble</v-icon>
+          </v-list-tile-action>
+        </v-list-tile>
+    </v-list>
+    <v-divider></v-divider>
+    <v-list subheader>
+      <v-subheader>Previous chats</v-subheader>
+      <v-list-tile avatar v-for="item in items" v-bind:key="item.title" @click="selectItem(item)">
+        <v-list-tile-avatar>
+          <img v-bind:src="item.avatar"/>
+        </v-list-tile-avatar>
+        <v-list-tile-content>
+          <v-list-tile-title v-html="item.title"></v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+    </v-list>
+  </template>
     </v-navigation-drawer>
     <v-toolbar
       color="blue darken-3"
@@ -100,12 +73,7 @@
     <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
-          <v-tooltip right>
-            <v-btn icon large :href="source" target="_blank" slot="activator">
-              <v-icon large>code</v-icon>
-            </v-btn>
-            <span>Source</span>
-          </v-tooltip>
+          <slot></slot>
         </v-layout>
       </v-container>
     </v-content>
@@ -187,6 +155,8 @@
 </template>
 
 <script>
+import { GRAVATAR_URL } from 'app.config'
+
   export default {
     data: () => ({
       dialog: false,
@@ -195,6 +165,12 @@
     props: {
       source: String,
       items: Array
+    },
+    methods: {
+      selectItem: function(item) {
+        this.$store.dispatch('setSelection', item.id)
+        this.$store.dispatch('setSelectedType', item.type)
+      }
     }
   }
 </script>
