@@ -6,7 +6,7 @@ import store from 'store/store.js'
 
 
 import Home from 'components/Home'
-import Hello from 'components/Hello'
+import Admin from 'components/Admin'
 import Login from 'components/Login'
 import Register from 'components/Register'
 
@@ -14,7 +14,7 @@ import authentication from 'components/Login/authentication'
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/hello', component: Hello },
+  { path: '/admin', component: Admin },
   { path: '/login', component: Login },
   { path: '/register', component: Register }
 ]
