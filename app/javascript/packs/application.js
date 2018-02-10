@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 import Vue from 'vue/dist/vue.esm'
 import VueRouter from 'vue-router'
+import Vuetify from 'vuetify'
 import store from 'store/store.js'
 
 
@@ -19,6 +20,7 @@ const routes = [
 ]
 
 Vue.use(VueRouter)
+Vue.use(Vuetify)
 
 
 var router = new VueRouter({
