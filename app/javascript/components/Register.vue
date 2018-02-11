@@ -11,9 +11,7 @@
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
-                      name="email"
                       label="Email address"
-                      id="email"
                       v-model="newUser.email"
                       type="email"
                       required>
@@ -23,9 +21,7 @@
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
-                      name="password"
                       label="Password"
-                      id="password"
                       v-model="newUser.password"
                       type="password"
                       required>
@@ -35,9 +31,7 @@
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
-                      name="password_confirmation"
                       label="Confirm Password"
-                      id="password_confirmation"
                       v-model="newUser.password_confirmation"
                       type="password"
                       >
