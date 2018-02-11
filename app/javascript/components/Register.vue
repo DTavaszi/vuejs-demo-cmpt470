@@ -1,15 +1,65 @@
 <template>
-  <div>
-    <h1>Registration Page</h1>
-    <form v-on:submit.prevent="register()">
-      <input type="text" placeholder="Email" v-model="newUser.email">
-      <input type="password" placeholder="Password" v-model="newUser.password">
-      <input type="password" placeholder="Password Confirmation" v-model="newUser.password_confirmation">
-      <button type="submit" value="register"> Register </button>
-    </form>
-    <router-link to="/">Go back</router-link>
-  </div>
+<div>
+  <h1>Registration</h1>
+  <v-container>
+    <v-layout row>
+      <v-flex xs12 sm6 offset-sm3>
+        <v-card>
+          <v-card-text>
+            <v-container>
+              <form v-on:submit.prevent="register()">
+                <v-layout row>
+                  <v-flex xs12>
+                    <v-text-field
+                      name="email"
+                      label="Email address"
+                      id="email"
+                      v-model="newUser.email"
+                      type="email"
+                      required>
+                    </v-text-field>
+                  </v-flex>
+                </v-layout>
+                <v-layout row>
+                  <v-flex xs12>
+                    <v-text-field
+                      name="password"
+                      label="Password"
+                      id="password"
+                      v-model="newUser.password"
+                      type="password"
+                      required>
+                    </v-text-field>
+                  </v-flex>
+                </v-layout>
+                <v-layout row>
+                  <v-flex xs12>
+                    <v-text-field
+                      name="password_confirmation"
+                      label="Confirm Password"
+                      id="password_confirmation"
+                      v-model="newUser.password_confirmation"
+                      type="password"
+                      >
+                    </v-text-field>
+                  </v-flex>
+                </v-layout>
+                <v-layout row>
+                  <v-flex xs12>
+                    <v-btn type="submit" value="register">Register</v-btn>
+                  </v-flex>
+                </v-layout>
+              </form>
+            </v-container>
+          </v-card-text>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
+  <router-link to="/">Go back</router-link>
+</div>
 </template>
+
 
 <script>
 import authentication from './Login/authentication'
