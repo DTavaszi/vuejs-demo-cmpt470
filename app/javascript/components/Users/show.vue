@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%;">
+  <div class="showUser" @click="focusText()">
     <v-container grid-list-md text-xs-center>
       <template v-for="message in messages">
         <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
@@ -7,7 +7,9 @@
       </template>
     </v-container>
 
-    <input @keyup.enter="sendMessage()" @keyup.esc="resetMessage" type="text" placeholder="Enter a message" v-model="message" />
+    <v-footer absolute>
+      <v-text-field autofocus clearable ref="messageInput" type="text" @keyup.enter="sendMessage()" @keyup.esc="resetMessage" placeholder="Type a message" v-model="message"/>
+    </v-footer>
   </div>
 </template>
 
@@ -58,6 +60,9 @@ export default {
     },
     currentIsSender: function(message) {
       return message.sender_id == this.currentUser.id
+    },
+    focusText: function() {
+      this.$nextTick(() => this.$refs.messageInput.focus())
     }
   },
   components: {
@@ -66,13 +71,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.receiver {
-  color: red;
-}
-
-.sender {
-  color: blue;
-}
-</style>

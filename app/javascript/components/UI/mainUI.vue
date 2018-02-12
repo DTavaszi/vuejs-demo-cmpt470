@@ -71,12 +71,14 @@
       </div>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
+      <v-container fluid fill-height class="no-padding">
         <v-layout justify-center align-center>
           <slot></slot>
         </v-layout>
       </v-container>
     </v-content>
+
+    <!--
     <v-btn
       fab
       bottom
@@ -151,6 +153,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+  -->
   </v-app>
 </template>
 

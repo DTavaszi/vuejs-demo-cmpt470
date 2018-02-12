@@ -1,13 +1,13 @@
 <template>
   <v-layout row wrap>
-    <v-flex xs1 v-for="i in 1" :key="i">
+    <v-flex xs1>
     </v-flex>
-    <v-flex xs10 v-for="i in 1" :key="i">
+    <v-flex xs10>
       <v-card dark color="secondary" class="rightSide">
         <v-card-text class="px-0"> {{ message.message }} </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex xs1 v-for="i in 1" :key="i">
+    <v-flex xs1>
     </v-flex>
   </v-layout>
 </template>
