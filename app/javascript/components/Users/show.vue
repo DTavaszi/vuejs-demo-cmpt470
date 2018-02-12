@@ -1,5 +1,8 @@
 <template>
   <div class="showUser" @click="focusText()">
+    <v-toolbar flat>
+      <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
+    </v-toolbar>
     <v-container grid-list-md text-xs-center>
       <template v-for="message in messages">
         <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
