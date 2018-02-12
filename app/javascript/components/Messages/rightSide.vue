@@ -3,8 +3,8 @@
     <v-flex xs1>
     </v-flex>
     <v-flex xs10>
-      <v-card dark color="secondary" class="rightSide">
-        <v-card-text class="px-0"> {{ message.message }} </v-card-text>
+      <v-card dark color="blue" class="rightSide">
+        <v-card-text class="pa-2"> {{ message.message }} </v-card-text>
       </v-card>
     </v-flex>
     <v-flex xs1>

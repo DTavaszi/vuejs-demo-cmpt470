@@ -1,13 +1,13 @@
 <template>
   <v-layout row wrap>
     <v-flex xs1>
-      <v-list-tile-avatar>
+      <v-list-tile-avatar size="38px">
         <img v-bind:src="avatar"/>
       </v-list-tile-avatar>
     </v-flex>
     <v-flex xs10>
-      <v-card dark color="secondary" class="leftSide">
-        <v-card-text class="px-0"> {{ message.message }} </v-card-text>
+      <v-card class="leftSide">
+        <v-card-text class="pa-2"> {{ message.message }} </v-card-text>
       </v-card>
     </v-flex>
     <v-flex xs1>
