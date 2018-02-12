@@ -17,9 +17,11 @@ export default {
     HTTPService.get(GET_MESSAGES_PATH)
     .then(function(response) {
       context.$store.dispatch('setMessages', response.data)
+      context.$store.dispatch('setQuerying', false)
     })
     .catch(function(error) {
       console.log(error)
+      context.$store.dispatch('setQuerying', false)
     })
   }
 }

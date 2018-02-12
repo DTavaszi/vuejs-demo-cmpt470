@@ -160,20 +160,20 @@
 <script>
 import { GRAVATAR_URL } from 'app.config'
 
-  export default {
-    data: () => ({
-      dialog: false,
-      drawer: null
-    }),
-    props: {
-      source: String,
-      items: Array
-    },
-    methods: {
-      selectItem: function(item) {
-        this.$store.dispatch('setSelection', item.id)
-        this.$store.dispatch('setSelectedType', item.type)
-      }
+export default {
+  data: () => ({
+    dialog: false,
+    drawer: null
+  }),
+  props: {
+    source: String,
+    items: Array
+  },
+  methods: {
+    selectItem: function(item) {
+      this.$store.dispatch('setSelection', item.id)
+      this.$store.dispatch('setSelectedType', item.type)
     }
   }
+}
 </script>

@@ -34,7 +34,6 @@ export default {
     },
     messages: function() {
       var app = this
-      console.log("current: " + this.currentUser.id + "; selected: " + this.selectedUser.id)
       return this.$store.getters.messages.filter(function(message) {
         return ((message.recipient_id == app.currentUser.id) && (message.sender_id == app.selectedUser.id)) ||
             ((message.recipient_id == app.selectedUser.id) && (message.sender_id == app.currentUser.id))
@@ -59,6 +58,7 @@ export default {
 
       if (formatted_message.message.length > 0) {
         messagesREST.addMessage(this, formatted_message)
+        this.resetMessage()
       }
     },
     currentIsSender: function(message) {
