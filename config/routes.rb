@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :friends, defaults: { format: :json }
   resources :messages, defaults: { format: :json }
+  resources :message_notifications, only: [:create, :index, :update], defaults: { format: :json }
 
   root to: 'home#app'
   match "*path", to: "home#app", format: false, via: :get

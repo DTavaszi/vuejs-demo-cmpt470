@@ -2,7 +2,7 @@
 </template>
 
 <script>
-import messagesREST from './messagesREST'
+import messageNotificationsREST from './notificationsREST'
 
 const QUERY_INTERVAL = 1000
 
@@ -11,20 +11,21 @@ export default {
     this.update()
   },
   computed: {
-    querying: function () {
-      return this.$store.getters.messagesQuerying
+    querying: function() {
+      return this.$store.getters.messageNotificationsQuerying
     }
   },
   methods: {
-    update: function () {
+    update: function() {
       var app = this
       setInterval(function() {
         if (!app.querying) {
-          messagesREST.getMessages(app)
-          app.$store.dispatch('setQuerying', true)
+          messageNotificationsREST.getMessageNotifications(app)
+          app.$store.dispatch('setMessageNotificationsQuerying', true)
         }
       }, QUERY_INTERVAL)
     }
   }
+
 }
 </script>

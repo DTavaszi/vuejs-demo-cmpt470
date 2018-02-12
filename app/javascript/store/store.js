@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import users from './modules/users'
 import friends from './modules/friends'
 import messages from './modules/messages'
+import messageNotifications from './modules/messageNotifications'
 import ui from './modules/ui'
 import authentication from './modules/authentication'
 
@@ -14,6 +15,7 @@ const store = new Vuex.Store({
     users,
     friends,
     messages,
+    messageNotifications,
     authentication,
     ui
   }

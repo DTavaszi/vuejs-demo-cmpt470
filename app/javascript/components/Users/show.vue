@@ -48,6 +48,7 @@ export default {
   },
   created: function() {
     messagesREST.getMessages(this)
+    this.updateMessagesRead()
   },
   methods: {
     resetMessage: function() {
@@ -66,6 +67,9 @@ export default {
     },
     focusText: function() {
       this.$nextTick(() => this.$refs.messageInput.focus())
+    },
+    updateMessagesRead() {
+      messagesREST.updateMessagesRead(this, this.selectedUser)
     }
   },
   components: {

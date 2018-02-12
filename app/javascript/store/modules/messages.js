@@ -1,7 +1,7 @@
 const messages = {
   state: {
     messages: [],
-    querying: false
+    messagesQuerying: false
   },
   mutations: {
     SET_MESSAGES: function(state, messages) {
@@ -13,9 +13,9 @@ const messages = {
     ADD_MESSAGE: function(state, message) {
 
     },
-    SET_QUERYING: function(state, querying) {
-      state.querying = querying
-    }
+    SET_MESSAGES_QUERYING: function(state, messagesQuerying) {
+      state.messagesQuerying = messagesQuerying
+    },
   },
   actions: {
     setMessages({commit}, messages) {
@@ -27,13 +27,13 @@ const messages = {
     addMessage({commit}, message) {
       commit('ADD_MESSAGE', message)
     },
-    setQuerying({commit}, querying) {
-      commit('SET_QUERYING', querying)
+    setMessagesQuerying({commit}, messagesQuerying) {
+      commit('SET_QUERYING', messagesQuerying)
     }
   },
   getters: {
     messages: state => state.messages,
-    querying: state => state.querying
+    messagesQuerying: state => state.messagesQuerying
   }
 }
 
