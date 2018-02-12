@@ -63,6 +63,7 @@ export default {
           icon: 'person_pin',
           title: user.email,
           active: (app.$store.getters.selectedType == USER_TYPE && app.$store.getters.selectedItem == user.id),
+          read: !(!!app.$store.getters.messages.find(msg => (msg.sender_id == user.sender_id) && !msg.read)),
           avatar: 'https://www.gravatar.com/avatar/' + user.email
         }
       })
