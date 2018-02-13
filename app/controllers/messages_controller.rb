@@ -29,6 +29,7 @@ class MessagesController < ApplicationController
 
   def show
     messages = current_user.messages_with_limited(params[:user_id])
+    update_notify(params[:user_id], current_user.id)
 
     respond_to do |format|
       format.json { render json: messages, status: :ok }
@@ -37,13 +38,13 @@ class MessagesController < ApplicationController
 
   def get_messages_after
     message = Message.find(params[:message_id])
-    puts "PARAMS: ["
-    puts params
-    puts params[:message_id]
-    puts "]"
+    messages_after = message.messages_after
+
+    sender_id = (message.sender_id == current_user.id) ? message.recipient_id : message.sender_id
+    update_notify(sender_id, current_user.recipient_id)
 
     respond_to do |format|
-      format.json { render json: message.messages_after, status: :ok }
+      format.json { render json: messages_after, status: :ok }
     end
   end
 
@@ -57,6 +58,11 @@ class MessagesController < ApplicationController
   end
 
   protected
+
+  def update_notify sender_id, recipient_id
+    message_notification = MessageNotification.find_by(sender_id: sender_id, recipient_id: recipient_id)
+    message_notification.update_attribute(:notify, false) if message_notification
+  end
 
   def user_params
     params.require(:user).permit(:id)

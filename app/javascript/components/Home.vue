@@ -31,13 +31,13 @@ export default {
       return this.users.map(function(user) {
         var messageNotification = app.messageNotifications.find(mn => mn.notify && (mn.recipient_id == app.$store.getters.currentUser.id)
                     && (mn.sender_id == user.id))
-
         var message = ''
         var notify = false
 
         if (!!messageNotification) {
-          notify = messageNotification.notify
-
+          if (messageNotification.sender_id != app.$store.getters.selectedItem) {
+            notify = messageNotification.notify
+          }
           if (!!messageNotification.message) {
             message = messageNotification.message.message
           }
