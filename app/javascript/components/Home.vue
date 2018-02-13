@@ -31,14 +31,28 @@ export default {
     items: function () {
       var app = this
       return this.users.map(function(user) {
+        var messageNotification = app.messageNotifications.find(mn => mn.notify && (mn.recipient_id == app.$store.getters.currentUser.id)
+                    && (mn.sender_id == user.id))
+
+        var message = ''
+        var notify = false
+
+        if (!!messageNotification) {
+          notify = messageNotification.notify
+
+          if (!!messageNotification.message) {
+            message = messageNotification.message.message
+          }
+        }
+
         return {
           id: user.id,
           type: USER_TYPE,
           icon: 'person_pin',
           title: user.email,
+          subtitle: message,
+          notify: notify,
           active: (app.$store.getters.selectedType == USER_TYPE && app.$store.getters.selectedItem == user.id),
-          notify: !!app.messageNotifications.find(mn => mn.notify && (mn.recipient_id == app.$store.getters.currentUser.id)
-                      && (mn.sender_id == user.id)),
           avatar: 'https://www.gravatar.com/avatar/' + user.email
         }
       })

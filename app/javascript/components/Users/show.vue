@@ -10,6 +10,7 @@
       </template>
     </v-container>
 
+    <div class="footer-filler"></div>
     <v-footer absolute>
       <v-text-field autofocus clearable ref="messageInput" type="text" @keyup.enter="sendMessage()" @keyup.esc="resetMessage" placeholder="Type a message" v-model="message"/>
     </v-footer>
