@@ -1,5 +1,5 @@
 <template>
-  <v-layout row class="height-auto">
+  <v-layout row class="height-auto message-card">
     <v-flex xs1>
     </v-flex>
     <v-flex xs10>

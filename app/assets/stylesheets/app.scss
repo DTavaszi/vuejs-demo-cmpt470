@@ -45,10 +45,16 @@ div.footer-filler {
 }
 
 div.conversation {
+  position: relative;
   overflow-y: scroll;
   height: calc(100vh - 202px);
 }
 
 .height-auto {
   height: auto !important;
+}
+
+.message-card {
+  position: relative;
+  z-index: 50;
 }

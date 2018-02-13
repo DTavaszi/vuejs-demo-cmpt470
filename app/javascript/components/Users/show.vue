@@ -1,5 +1,5 @@
 <template>
-  <div class="showUser" @click="focusText()">
+  <div class="showUser">
     <v-toolbar flat>
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
@@ -25,7 +25,8 @@ export default {
   data: function() {
     return {
       currentUser: this.$store.getters.currentUser,
-      message: ''
+      message: '',
+      firstLoad: true // The first time the window loads, scroll to bottom
     }
   },
   computed: {
@@ -34,8 +35,6 @@ export default {
     },
     messages: function() {
       var app = this
-      this.scrollBottom()
-
       return this.$store.getters.messages.filter(function(message) {
         return ((message.recipient_id == app.currentUser.id) && (message.sender_id == app.selectedUser.id)) ||
             ((message.recipient_id == app.selectedUser.id) && (message.sender_id == app.currentUser.id))
@@ -46,6 +45,16 @@ export default {
     },
     formatted_message: function() {
       return { recipient_id: this.selectedUser.id, message: this.message }
+    }
+  },
+  watch: {
+    messages: function(newMessages, oldMessages) {
+      if (newMessages.length != oldMessages.length) {
+        this.scrollBottom() // only scroll to bottom if there are new messages (assumed to be increasing in length)
+      }
+    },
+    selectedUser: function(newUser, oldUser) {
+      this.firstLoad = true // If selected user changes, then scroll to bottom
     }
   },
   created: function() {
@@ -71,7 +80,13 @@ export default {
       this.$nextTick(() => this.$refs.messageInput.focus())
     },
     scrollBottom: function() {
-      this.$nextTick(() => this.$refs.conversation.scrollTop = this.$refs.conversation.scrollHeight)
+      this.$nextTick(() => {
+        if (this.firstLoad ||
+            this.$refs.conversation.scrollTop >= (this.$refs.conversation.scrollHeight - this.$refs.conversation.clientHeight - 150)) {
+          this.firstLoad = false
+          this.$refs.conversation.scrollTop = this.$refs.conversation.scrollHeight
+        }
+      })
     },
     updateMessagesRead() {
       messagesREST.updateMessagesRead(this, this.selectedUser)
