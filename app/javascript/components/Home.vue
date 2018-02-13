@@ -3,7 +3,6 @@
     <getMessageNotifications></getMessageNotifications>
     <mainUI :items="items">
       <template slot="title"> AppTitle </template>
-
       <showUser v-if="isUserSelection"></showUser>
     </mainUI>
   </div>
@@ -29,17 +28,20 @@ export default {
     items: function () {
       var app = this
       return this.users.map(function(user) {
-        var messageNotification = app.messageNotifications.find(mn => mn.notify && (mn.recipient_id == app.$store.getters.currentUser.id)
-                    && (mn.sender_id == user.id))
-        var message = ''
+        var messageNotification = app.messageNotifications.find(mn => mn.recipient_id == app.$store.getters.currentUser.id
+                    && mn.sender_id == user.id)
+        var message = ' '
         var notify = false
 
         if (!!messageNotification) {
+          console.log('!!messageNotification')
           if (messageNotification.sender_id != app.$store.getters.selectedItem) {
             notify = messageNotification.notify
           }
           if (!!messageNotification.message) {
+            console.log('!!messageNotification.message')
             message = messageNotification.message.message
+            console.log(messageNotification.message.message)
           }
         }
 

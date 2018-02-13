@@ -39,7 +39,6 @@ export default {
       var app = this
       setInterval(function() {
         if (!app.querying && !!app.user) {
-          console.log(app.user)
           if (app.$store.getters.selectedType == 'user') {
             if (!!app.lastMessage && !app.switched) {
               app.switched = false

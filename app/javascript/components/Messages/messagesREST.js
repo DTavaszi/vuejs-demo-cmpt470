@@ -30,7 +30,6 @@ export default {
   getMessages: function (context, user) {
     HTTPService.get(GET_MESSAGES_WITH_PATH + user.id)
     .then(function (response) {
-      console.log('response data: ' + response.data)
       context.$store.dispatch('setMessages', response.data)
       context.$store.dispatch('setMessagesQuerying', false)
     })
@@ -40,7 +39,6 @@ export default {
     })
   },
   getMessagesAfter: function (context, user, message) {
-    console.log('getMessagesAfter ' + message)
     HTTPService.get(GET_MESSAGES_AFTER_PATH + message.id)
     .then(function (response) {
       context.$store.dispatch('addMessagesAfter', response.data)

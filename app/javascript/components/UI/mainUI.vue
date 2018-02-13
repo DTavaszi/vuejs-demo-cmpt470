@@ -4,7 +4,7 @@
     <template>
       <v-list subheader>
       <v-subheader>Recent chat</v-subheader>
-        <v-list-tile avatar v-for="item in items" :value="item.active" v-bind:key="item.title" @click="selectItem(item)">
+        <v-list-tile avatar v-for="item in items" :value="item.active" :key="item.title" @click="selectItem(item)">
           <v-list-tile-avatar>
             <img v-bind:src="item.avatar"/>
           </v-list-tile-avatar>
