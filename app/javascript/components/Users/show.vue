@@ -4,10 +4,10 @@
     <v-toolbar flat>
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
-    <v-container ref="conversation" grid-list-md text-xs-center class="conversation">
+    <v-container ref="conversation" grid-list-md text-xs-center class="conversation" @click="focusText()">
       <template v-for="message in messages">
-        <rightSide v-if="currentIsSender(message)" :message="message" @click="focusText()"></rightSide>
-        <leftSide v-else :message="message" @click="focusText()"></leftSide>
+        <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
+        <leftSide v-else :message="message"></leftSide>
       </template>
     </v-container>
 
@@ -74,7 +74,9 @@ export default {
       return message.sender_id == this.currentUser.id
     },
     focusText: function() {
-      this.$nextTick(() => this.$refs.messageInput.focus())
+      if (window.getSelection().toString().length == 0) {
+        this.$nextTick(() => this.$refs.messageInput.focus())
+      }
     },
     scrollBottom: function() {
       this.$nextTick(() => {
