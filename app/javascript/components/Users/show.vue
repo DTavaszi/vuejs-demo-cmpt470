@@ -3,15 +3,14 @@
     <v-toolbar flat>
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
-    <v-container grid-list-md text-xs-center>
+    <v-container ref="conversation" grid-list-md text-xs-center class="conversation">
       <template v-for="message in messages">
         <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
         <leftSide v-else :message="message"></leftSide>
       </template>
     </v-container>
 
-    <div class="footer-filler"></div>
-    <v-footer absolute>
+    <v-footer>
       <v-text-field autofocus clearable ref="messageInput" type="text" @keyup.enter="sendMessage()" @keyup.esc="resetMessage" placeholder="Type a message" v-model="message"/>
     </v-footer>
   </div>
@@ -35,6 +34,8 @@ export default {
     },
     messages: function() {
       var app = this
+      this.scrollBottom()
+
       return this.$store.getters.messages.filter(function(message) {
         return ((message.recipient_id == app.currentUser.id) && (message.sender_id == app.selectedUser.id)) ||
             ((message.recipient_id == app.selectedUser.id) && (message.sender_id == app.currentUser.id))
@@ -68,6 +69,9 @@ export default {
     },
     focusText: function() {
       this.$nextTick(() => this.$refs.messageInput.focus())
+    },
+    scrollBottom: function() {
+      this.$nextTick(() => this.$refs.conversation.scrollTop = this.$refs.conversation.scrollHeight)
     },
     updateMessagesRead() {
       messagesREST.updateMessagesRead(this, this.selectedUser)

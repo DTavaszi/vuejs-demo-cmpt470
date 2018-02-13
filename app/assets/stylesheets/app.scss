@@ -1,3 +1,7 @@
+html {
+  overflow: auto !important;
+}
+
 .rightSide {
   width: fit-content;
   padding-left: 10px;
@@ -38,4 +42,13 @@
 div.footer-filler {
   height: 100px;
   width: 100%;
+}
+
+div.conversation {
+  overflow-y: scroll;
+  height: calc(100vh - 202px);
+}
+
+.height-auto {
+  height: auto !important;
 }

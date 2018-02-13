@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap>
+  <v-layout row class="height-auto">
     <v-flex xs1>
     </v-flex>
     <v-flex xs10>

@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap>
+  <v-layout row class="height-auto">
     <v-flex xs1>
       <v-list-tile-avatar size="38px">
         <img v-bind:src="avatar"/>
