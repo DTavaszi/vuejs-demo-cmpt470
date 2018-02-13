@@ -1,6 +1,6 @@
 <template>
   <div class="showUser">
-    <updateMessages :user="selectedUser"></updateMessages>
+    <updateMessages></updateMessages>
     <v-toolbar flat>
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
