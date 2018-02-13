@@ -5,8 +5,8 @@
     </v-toolbar>
     <v-container ref="conversation" grid-list-md text-xs-center class="conversation">
       <template v-for="message in messages">
-        <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
-        <leftSide v-else :message="message"></leftSide>
+        <rightSide v-if="currentIsSender(message)" :message="message" @click="focusText()"></rightSide>
+        <leftSide v-else :message="message" @click="focusText()"></leftSide>
       </template>
     </v-container>
 
@@ -49,12 +49,13 @@ export default {
   },
   watch: {
     messages: function(newMessages, oldMessages) {
-      if (newMessages.length != oldMessages.length) {
+      if ((newMessages.length != oldMessages.length) || this.firstLoad) {
         this.scrollBottom() // only scroll to bottom if there are new messages (assumed to be increasing in length)
       }
     },
     selectedUser: function(newUser, oldUser) {
       this.firstLoad = true // If selected user changes, then scroll to bottom
+      this.focusText()
     }
   },
   created: function() {
