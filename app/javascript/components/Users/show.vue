@@ -5,7 +5,12 @@
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
     <v-container ref="conversation" grid-list-md text-xs-center class="conversation" @click="focusText()">
-      <template v-for="message in messages">
+      <template v-if="firstLoad == true">
+        <div class="progress-spinner">
+          <v-progress-circular indeterminate :size="50" color="primary"></v-progress-circular>
+        </div>
+      </template>
+      <template v-else v-for="message in messages">
         <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
         <leftSide v-else :message="message"></leftSide>
       </template>
@@ -48,8 +53,12 @@ export default {
   },
   watch: {
     messages: function(newMessages, oldMessages) {
-      if ((newMessages.length != oldMessages.length) || this.firstLoad) {
+      if (newMessages.length != oldMessages.length) {
         this.scrollBottom() // only scroll to bottom if there are new messages (assumed to be increasing in length)
+      }
+
+      if (this.firstLoad && !this.$store.messagesQuerying) {
+        this.firstLoad = false
       }
     },
     selectedUser: function(newUser, oldUser) {
@@ -81,8 +90,7 @@ export default {
     scrollBottom: function() {
       this.$nextTick(() => {
         if (this.firstLoad ||
-            this.$refs.conversation.scrollTop >= (this.$refs.conversation.scrollHeight - this.$refs.conversation.clientHeight - 150)) {
-          this.firstLoad = false
+              this.$refs.conversation.scrollTop >= (this.$refs.conversation.scrollHeight - this.$refs.conversation.clientHeight - 150)) {
           this.$refs.conversation.scrollTop = this.$refs.conversation.scrollHeight
         }
       })

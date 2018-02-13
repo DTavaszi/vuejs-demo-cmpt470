@@ -30,7 +30,6 @@ export default {
     user: function(newUser, oldUser) {
         if (!(!!newUser && !!oldUser) || newUser.id != oldUser.id) {
           this.switched = true
-          this.$store.dispatch('setMessages', [])
         }
     }
   },
