@@ -17,7 +17,7 @@
       app
     >
     <v-avatar size="125px">
-    <img class="img-circle elevation-7 mb-1" src="http://arbosarquitetura.com/arbosarq/ARBOS/BEL/imgs/bg3.jpg" style="display:block"/>
+    <img class="img-circle elevation-7 mb-1" src="#"/>
     </v-avatar>
     <div class="heading text-m-right pt-1 pb-3">
     <span style="float:right; margin-right:25%">ADMIN</span>
