@@ -1,5 +1,6 @@
 <template>
   <div class="showUser">
+    <updateMessages :user="selectedUser"></updateMessages>
     <v-toolbar flat>
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
@@ -18,6 +19,7 @@
 
 <script>
 import messagesREST from 'components/Messages/messagesREST'
+import updateMessages from 'components/Messages/updateMessages'
 import leftSide from 'components/Messages/leftSide'
 import rightSide from 'components/Messages/rightSide'
 
@@ -35,16 +37,13 @@ export default {
     },
     messages: function() {
       var app = this
-      return this.$store.getters.messages.filter(function(message) {
-        return ((message.recipient_id == app.currentUser.id) && (message.sender_id == app.selectedUser.id)) ||
-            ((message.recipient_id == app.selectedUser.id) && (message.sender_id == app.currentUser.id))
-      })
+      return this.$store.getters.messages
     },
     friends: function() {
       return this.$store.getters.users
     },
     formatted_message: function() {
-      return { recipient_id: this.selectedUser.id, message: this.message }
+      return { token: this.$store.getters.token, sender_id: this.currentUser.id, recipient_id: this.selectedUser.id, message: this.message }
     }
   },
   watch: {
@@ -58,10 +57,6 @@ export default {
       this.focusText()
     }
   },
-  created: function() {
-    messagesREST.getMessages(this)
-    this.updateMessagesRead()
-  },
   methods: {
     resetMessage: function() {
       this.message = ''
@@ -70,7 +65,8 @@ export default {
       var formatted_message = this.formatted_message
 
       if (formatted_message.message.length > 0) {
-        messagesREST.addMessage(this, formatted_message)
+        this.$store.dispatch('addMessage', formatted_message)
+        messagesREST.sendMessage(this, formatted_message)
         this.resetMessage()
       }
     },
@@ -88,14 +84,12 @@ export default {
           this.$refs.conversation.scrollTop = this.$refs.conversation.scrollHeight
         }
       })
-    },
-    updateMessagesRead() {
-      messagesREST.updateMessagesRead(this, this.selectedUser)
     }
   },
   components: {
     leftSide,
-    rightSide
+    rightSide,
+    updateMessages
   }
 }
 </script>

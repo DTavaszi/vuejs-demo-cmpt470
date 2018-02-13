@@ -1,39 +1,58 @@
 const messages = {
   state: {
     messages: [],
-    messagesQuerying: false
+    messagesQuerying: false,
+    token: 0
   },
   mutations: {
     SET_MESSAGES: function(state, messages) {
       state.messages = messages
     },
-    ADD_MESSAGES: function(state, messages) {
-
+    ADD_MESSAGES_AFTER: function(state, messages) {
+      var filtered = messages.filter(message => !!!state.messages.find(msg => msg.id == message.id))
+      state.messages = state.messages.concat(filtered)
+    },
+    ADD_MESSAGES_BEFORE: function(state, messages) {
+      state.messages = messages.concat(state.messages)
     },
     ADD_MESSAGE: function(state, message) {
-
+      state.messages.push(message)
     },
     SET_MESSAGES_QUERYING: function(state, messagesQuerying) {
       state.messagesQuerying = messagesQuerying
     },
+    UPDATE_MESSAGE: function(state, { old_message, new_message }) {
+      var index = state.messages.findIndex(el => el.token == old_message.token)
+
+      if (index >= 0) {
+        state.messages[index] = new_message
+      }
+    }
   },
   actions: {
     setMessages({commit}, messages) {
       commit('SET_MESSAGES', messages)
     },
-    addMessages({commit}, messages) {
-      commit('ADD_MESSAGES', messages)
+    addMessagesAfter({commit}, messages) {
+      commit('ADD_MESSAGES_AFTER', messages)
+    },
+    addMessagesBefore({commit}, messages) {
+      commit('ADD_MESSAGES_BEFORE', messages)
+    },
+    setMessagesQuerying({commit}, messagesQuerying) {
+      commit('SET_MESSAGES_QUERYING', messagesQuerying)
     },
     addMessage({commit}, message) {
       commit('ADD_MESSAGE', message)
     },
-    setMessagesQuerying({commit}, messagesQuerying) {
-      commit('SET_MESSAGES_QUERYING', messagesQuerying)
+    updateMessage({commit}, payload) {
+      commit('UPDATE_MESSAGE', payload)
     }
   },
   getters: {
     messages: state => state.messages,
-    messagesQuerying: state => state.messagesQuerying
+    messagesQuerying: state => state.messagesQuerying,
+    token: state => state.token++
   }
 }
 

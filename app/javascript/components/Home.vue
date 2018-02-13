@@ -1,6 +1,5 @@
 <template>
   <div>
-    <updateMessages></updateMessages>
     <getMessageNotifications></getMessageNotifications>
     <mainUI :items="items">
       <template slot="title"> AppTitle </template>
@@ -14,7 +13,6 @@
 import mainUI from 'components/UI/mainUI'
 import userRequests from 'components/Users/userRequests'
 import showUser from 'components/Users/show'
-import updateMessages from 'components/Messages/updateMessages'
 import getMessageNotifications from 'components/MessageNotifications/getNotifications'
 
 
@@ -67,7 +65,6 @@ export default {
   components: {
     mainUI,
     showUser,
-    updateMessages,
     getMessageNotifications
   }
 }

@@ -21,6 +21,14 @@ class User < ApplicationRecord
   end
 
   def messages_with friend_id
-    sent_messages.where(recipient_id: friend_id).or(received_messages.where(sender_id: friend_id)).last(5)
+    sent_messages.where(recipient_id: friend_id).or(received_messages.where(sender_id: friend_id))
+  end
+
+  def messages_with_after friend_id, message_id
+    (sent_messages.where(recipient_id: friend_id).where('id > ?', message_id)).or(received_messages.where(sender_id: friend_id).where('id > ?', message_id))
+  end
+
+  def messages_with_limited friend_id
+    messages_with(friend_id).last(5)
   end
 end

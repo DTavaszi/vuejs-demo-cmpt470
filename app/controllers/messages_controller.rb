@@ -27,16 +27,33 @@ class MessagesController < ApplicationController
     end
   end
 
-  def get_messages_after
-    message = Message.find(message_params[:id])
-    messages_after = message.messages_after
+  def show
+    messages = current_user.messages_with_limited(params[:user_id])
 
     respond_to do |format|
-      format.json { render json: messages_after, status: :ok }
+      format.json { render json: messages, status: :ok }
+    end
+  end
+
+  def get_messages_after
+    message = Message.find(params[:message_id])
+    puts "PARAMS: ["
+    puts params
+    puts params[:message_id]
+    puts "]"
+
+    respond_to do |format|
+      format.json { render json: message.messages_after, status: :ok }
     end
   end
 
   def get_messages_before
+    message = Message.find(params[:message_id])
+    messages_before = message.messages_before
+
+    respond_to do |format|
+      format.json { render json: messages_before, status: :ok }
+    end
   end
 
   protected

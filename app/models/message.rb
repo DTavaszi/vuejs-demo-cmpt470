@@ -7,7 +7,7 @@ class Message < ApplicationRecord
   after_save :notify
 
   def messages_after
-    sender.messages_with(recipient_id).where('id > ?', id)
+    sender.messages_with_after(recipient_id, id)
   end
 
   def messages_before

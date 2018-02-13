@@ -3,7 +3,7 @@
     <v-flex xs1>
     </v-flex>
     <v-flex xs10>
-      <v-card dark color="blue" class="rightSide">
+      <v-card dark :color="!!message.id ? 'blue' : 'lightgray'" class="rightSide">
         <v-card-text class="pa-2"> {{ message.message }} </v-card-text>
       </v-card>
     </v-flex>

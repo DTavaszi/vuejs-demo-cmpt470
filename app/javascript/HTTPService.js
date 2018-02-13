@@ -25,9 +25,9 @@ export default {
       })
     })
   },
-  get(url) {
+  get(url, value) {
     return new Promise(function(resolve, reject) {
-      HTTP.get(url)
+      HTTP.get(url, value)
       .then(function(response) {
         resolve(response)
       })
