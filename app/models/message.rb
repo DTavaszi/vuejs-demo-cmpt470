@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   belongs_to :recipient, class_name: 'User'
 
   validates :message, presence: true
-  after_commit :notify
+  after_save :notify
 
   def messages_after
     sender.messages_with(recipient_id).where('id > ?', id)
@@ -15,6 +15,6 @@ class Message < ApplicationRecord
   end
 
   def notify
-    MessageNotification.notify(sender_id, recipient_id)
+    MessageNotification.notify(id, sender_id, recipient_id)
   end
 end

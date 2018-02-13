@@ -21,7 +21,7 @@ export default {
       setInterval(function() {
         if (!app.querying) {
           messagesREST.getMessages(app)
-          app.$store.dispatch('setQuerying', true)
+          app.$store.dispatch('setMessagesQuerying', true)
         }
       }, QUERY_INTERVAL)
     }

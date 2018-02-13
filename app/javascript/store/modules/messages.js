@@ -28,7 +28,7 @@ const messages = {
       commit('ADD_MESSAGE', message)
     },
     setMessagesQuerying({commit}, messagesQuerying) {
-      commit('SET_QUERYING', messagesQuerying)
+      commit('SET_MESSAGES_QUERYING', messagesQuerying)
     }
   },
   getters: {

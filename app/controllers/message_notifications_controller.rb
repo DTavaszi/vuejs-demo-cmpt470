@@ -5,7 +5,7 @@ class MessageNotificationsController < ApplicationController
     message_notification = current_user.message_notifications.new(message_params)
 
     if message_notification.save
-      format.json { render json: message_notification, status: :ok}
+      format.json { render json: message_notification, include: { message: { only: :message }}, status: :ok}
     else
       respond_to do |format|
         format.json { render json: message_notification.errors.full_messages, status: :bad_request}
@@ -17,7 +17,7 @@ class MessageNotificationsController < ApplicationController
     message_notifications = current_user.message_notifications
 
     respond_to do |format|
-      format.json { render json: message_notifications, status: :ok }
+      format.json { render json: message_notifications, include: { message: { only: :message }}, status: :ok }
     end
   end
 
