@@ -35,16 +35,20 @@ export default {
         console.log(e)
       })
   },
-  identifyLoggedUser(context) {
-    HTTPService.get(GET_LOGGED_USER_PATH)
+  identifyLoggedUser(store) {
+    return new Promise((resolve, reject) => {
+      HTTPService.get(GET_LOGGED_USER_PATH)
       .then(function(response) {
-        context.$store.dispatch('setLoggedIn', true)
-        context.$store.dispatch('setCurrentUser', response.data)
+        store.dispatch('setLoggedIn', true)
+        store.dispatch('setCurrentUser', response.data)
+        resolve()
       })
       .catch(function(error) {
         console.log("Not logged in.")
-        context.$store.dispatch('setLoggedIn', false)
+        store.dispatch('setLoggedIn', false)
+        reject()
       })
+    })
   },
   register(context, newUser) {
     HTTPService.post(REGISTER_USER_PATH, { "user": newUser })

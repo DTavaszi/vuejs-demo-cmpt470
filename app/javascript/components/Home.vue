@@ -3,7 +3,8 @@
     <getMessageNotifications></getMessageNotifications>
     <mainUI :items="items">
       <template slot="title"> AppTitle </template>
-      <showUser v-if="isUserSelection"></showUser>
+
+        <showUser v-if="isUserSelection"></showUser>
     </mainUI>
   </div>
 </template>
@@ -24,6 +25,9 @@ export default {
     },
     messageNotifications: function () {
       return this.$store.getters.messageNotifications
+    },
+    isLoggedIn: function() {
+      return this.$store.getters.isLoggedIn
     },
     items: function () {
       var app = this

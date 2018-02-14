@@ -13,8 +13,8 @@ import Register from 'components/Register'
 import authentication from 'components/Login/authentication'
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/admin', component: Admin },
+  { path: '/', component: Home, meta: { requiresLogin: true } },
+  { path: '/admin', component: Admin, meta: { requiresLogin: true, requiresAdmin: true} },
   { path: '/login', component: Login },
   { path: '/register', component: Register }
 ]
@@ -22,10 +22,25 @@ const routes = [
 Vue.use(VueRouter)
 Vue.use(Vuetify)
 
-
 var router = new VueRouter({
   mode: 'history',
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const requiresLogin = to.matched.some(record => record.meta.requiresLogin)
+  if (requiresLogin) {
+    authentication.identifyLoggedUser(store)
+    .then(() => {
+      console.log('logged_in')
+      next()
+    })
+    .catch(() => {
+      next('/login')
+    })
+  } else {
+    next()
+  }
 })
 
 new Vue({
@@ -36,30 +51,5 @@ new Vue({
     count: function() {
       return store.state.count
     }
-  },
-  created: function() {
-    authentication.identifyLoggedUser(this)
   }
 })
-
-// If the using turbolinks, install 'vue-turbolinks':
-//
-// yarn add 'vue-turbolinks'
-//
-// Then uncomment the code block below:
-//
-// import TurbolinksAdapter from 'vue-turbolinks';
-// import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
-//
-// Vue.use(TurbolinksAdapter)
-//
-// document.addEventListener('turbolinks:load', () => {
-//   const app = new Vue({
-//     el: '#hello',
-//     data: {
-//       message: "Can you say hello?"
-//     },
-//     components: { App }
-//   })
-// })

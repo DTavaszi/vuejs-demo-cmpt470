@@ -10,7 +10,7 @@ export default {
         resolve(response)
       })
       .catch(function(error) {
-        reject(error.response.data)
+        reject(error)
       })
     })
   },
@@ -21,7 +21,7 @@ export default {
         resolve(response)
       })
       .catch(function(error) {
-        reject(error.response.data)
+        reject(error)
       })
     })
   },
@@ -32,7 +32,7 @@ export default {
         resolve(response)
       })
       .catch(function(error) {
-        reject(error.response.data)
+        reject(error)
       })
     })
   },
@@ -43,7 +43,7 @@ export default {
         resolve(response)
       })
       .catch(function(error) {
-        reject(error.response.data)
+        reject(error)
       })
     })
   }
