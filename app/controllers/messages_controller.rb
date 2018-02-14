@@ -41,7 +41,7 @@ class MessagesController < ApplicationController
     messages_after = message.messages_after
 
     sender_id = (message.sender_id == current_user.id) ? message.recipient_id : message.sender_id
-    update_notify(sender_id, current_user.recipient_id)
+    update_notify(sender_id, current_user.id)
 
     respond_to do |format|
       format.json { render json: messages_after, status: :ok }

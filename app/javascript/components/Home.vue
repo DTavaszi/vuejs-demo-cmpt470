@@ -34,14 +34,11 @@ export default {
         var notify = false
 
         if (!!messageNotification) {
-          console.log('!!messageNotification')
           if (messageNotification.sender_id != app.$store.getters.selectedItem) {
             notify = messageNotification.notify
           }
           if (!!messageNotification.message) {
-            console.log('!!messageNotification.message')
             message = messageNotification.message.message
-            console.log(messageNotification.message.message)
           }
         }
 

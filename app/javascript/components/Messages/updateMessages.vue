@@ -40,10 +40,10 @@ export default {
         if (!app.querying && !!app.user) {
           if (app.$store.getters.selectedType == 'user') {
             if (!!app.lastMessage && !app.switched) {
-              app.switched = false
               messagesREST.getMessagesAfter(app, app.user, app.lastMessage)
             } else {
               messagesREST.getMessages(app, app.user)
+              app.switched = false
             }
             app.$store.dispatch('setMessagesQuerying', true)
           } else {

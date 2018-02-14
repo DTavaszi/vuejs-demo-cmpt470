@@ -10,9 +10,14 @@
           <v-progress-circular indeterminate :size="50" color="primary"></v-progress-circular>
         </div>
       </template>
-      <template v-else v-for="message in messages">
-        <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
-        <leftSide v-else :message="message"></leftSide>
+      <template v-else>
+        <div>
+          You are now connected.
+        </div>
+        <template v-for="message in messages">
+          <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
+          <leftSide v-else :message="message"></leftSide>
+        </template>
       </template>
     </v-container>
 
