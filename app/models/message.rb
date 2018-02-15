@@ -11,7 +11,7 @@ class Message < ApplicationRecord
   end
 
   def messages_before
-    sender.messages_with(recipient_id).where('id < ?', id).last(5)
+    sender.messages_with(recipient_id).where('id < ?', id).last(10)
   end
 
   def notify

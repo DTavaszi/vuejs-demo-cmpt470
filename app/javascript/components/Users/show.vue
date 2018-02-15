@@ -14,7 +14,7 @@
         </div>
       </template>
       <template v-else>
-        <div>
+        <div v-if="!hasPreviousMessages || messages.length == 0">
           You and {{ username }} are friends.
         </div>
         <template v-for="message in messages">
@@ -66,6 +66,15 @@ export default {
     },
     lastMessage: function () {
       return this.$store.getters.messages.slice().reverse()[0]
+    },
+    firstMessage: function () {
+      return this.$store.getters.messages[0]
+    },
+    hasPreviousMessages: function () {
+      return this.$store.getters.hasPreviousMessages
+    },
+    messagesQuerying: function () {
+      return this.$store.getters.messagesQuerying
     }
   },
   watch: {
@@ -78,6 +87,11 @@ export default {
     selectedUser: function (newUser, oldUser) {
       this.firstLoad = true // If selected user changes, then scroll to bottom
       this.focusText()
+    },
+    messagesQuerying: function (newValue, oldValue) {
+      if (newValue == false) {
+        this.firstLoad = false
+      }
     }
   },
   methods: {
@@ -105,7 +119,7 @@ export default {
       var scrollPosition = this.$refs.conversation.scrollTop
 
       if (scrollPosition < this.previousScrollPosition && scrollPosition == 0) {
-        console.log('scroll up')
+        this.loadPreviousMessages()
       }
 
       this.previousScrollPosition = scrollPosition
@@ -122,6 +136,11 @@ export default {
         setTimeout(() => {
           this.$refs.conversation.scrollTop = this.$refs.conversation.scrollHeight
         }, 0)
+      }
+    },
+    loadPreviousMessages: function () {
+      if (this.hasPreviousMessages) {
+        messagesREST.getMessagesBefore(this, this.selectedUser, this.firstMessage)
       }
     }
   },

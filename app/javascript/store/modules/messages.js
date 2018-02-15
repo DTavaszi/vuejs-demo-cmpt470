@@ -76,7 +76,8 @@ const messages = {
     messages: state => state.messages,
     messagesQuerying: state => state.messagesQuerying,
     token: state => state.token++,
-    fetchMessagesStatus: state => state.fetchMessagesStatus
+    fetchMessagesStatus: state => state.fetchMessagesStatus,
+    hasPreviousMessages: state => state.hasPreviousMessages
   }
 }
 

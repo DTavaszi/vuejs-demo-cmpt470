@@ -5,6 +5,7 @@ const CREATE_MESSAGE_PATH = '/messages'
 
 const GET_MESSAGES_WITH_PATH = '/get_messages_with/'
 const GET_MESSAGES_AFTER_PATH = '/get_messages_after/'
+const GET_MESSAGES_BEFORE_PATH = '/get_messages_before/'
 
 export default {
   sendMessage: function (context, message) {
@@ -66,9 +67,9 @@ export default {
     })
   },
   getMessagesBefore: function (context, user, message) {
-    HTTPService.get(GET_MESSAGES_AFTER_PATH + message.id)
+    HTTPService.get(GET_MESSAGES_BEFORE_PATH + message.id)
     .then(function (response) {
-      context.$store.dispatch('setMessagesBefore', response.data)
+      context.$store.dispatch('addMessagesBefore', response.data)
       context.$store.dispatch('setMessagesQuerying', false)
       context.$store.dispatch('setFetchMessages', true)
     })
