@@ -4,7 +4,7 @@
     <v-toolbar flat>
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
-    <v-container ref="conversation" grid-list-md text-xs-center class="conversation" @click="focusText()">
+    <v-container ref="conversation" grid-list-md text-xs-center class="conversation" @scroll.passive="onScroll()" @click="focusText()">
       <v-alert type="error" :value="!fetchMessagesStatus">
       Cannot connect to server. Please check your internet connection.
       </v-alert>
@@ -41,7 +41,8 @@ export default {
     return {
       currentUser: this.$store.getters.currentUser,
       message: '',
-      firstLoad: true // The first time the window loads, scroll to bottom
+      firstLoad: true,
+      previousScrollPosition: 0
     }
   },
   props: {
@@ -52,7 +53,6 @@ export default {
       return this.selectedUser.username.length > 0 ? this.selectedUser.username : this.selectedUser.email
     },
     messages: function () {
-      var app = this
       return this.$store.getters.messages
     },
     friends: function () {
@@ -63,16 +63,16 @@ export default {
     },
     fetchMessagesStatus: function () {
       return this.$store.getters.fetchMessagesStatus
+    },
+    lastMessage: function () {
+      return this.$store.getters.messages.slice().reverse()[0]
     }
   },
   watch: {
-    messages: function (newMessages, oldMessages) {
-      if (newMessages.length != oldMessages.length) {
-        this.scrollBottom() // only scroll to bottom if there are new messages (assumed to be increasing in length)
-      }
-
-      if (this.firstLoad && !this.$store.messagesQuerying) {
-        this.firstLoad = false
+    lastMessage: function (newMessage, oldMessage) {
+      console.log(newMessage != oldMessage)
+      if (newMessage != oldMessage) {
+        this.scrollBottom() // scroll to bottom if there are new messages (assumed to be increasing in length)
       }
     },
     selectedUser: function (newUser, oldUser) {
@@ -101,13 +101,28 @@ export default {
         this.$nextTick(() => this.$refs.messageInput.focus())
       }
     },
+    onScroll: function () {
+      var scrollPosition = this.$refs.conversation.scrollTop
+
+      if (scrollPosition < this.previousScrollPosition && scrollPosition == 0) {
+        console.log('scroll up')
+      }
+
+      this.previousScrollPosition = scrollPosition
+    },
     scrollBottom: function () {
-      this.$nextTick( () => {
-        if (this.firstLoad ||
-              this.$refs.conversation.scrollTop >= (this.$refs.conversation.scrollHeight - this.$refs.conversation.clientHeight - 150)) {
+      console.log('scrolling bottom')
+
+      if (this.firstLoad ||
+            this.$refs.conversation.scrollTop >=
+            (this.$refs.conversation.scrollHeight -
+              this.$refs.conversation.clientHeight - 150))
+      {
+        this.firstLoad = false
+        setTimeout(() => {
           this.$refs.conversation.scrollTop = this.$refs.conversation.scrollHeight
-        }
-      })
+        }, 0)
+      }
     }
   },
   components: {

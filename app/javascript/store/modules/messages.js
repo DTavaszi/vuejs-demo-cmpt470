@@ -1,9 +1,12 @@
+const NUMBER_OF_EXPECTED_MESSAGES = 25
+
 const messages = {
   state: {
     messages: [],
     messagesQuerying: false,
     token: 0,
-    fetchMessagesStatus: true
+    fetchMessagesStatus: true,
+    hasPreviousMessages: true
   },
   mutations: {
     SET_MESSAGES: function(state, messages) {
@@ -31,17 +34,30 @@ const messages = {
     },
     SET_FETCH_MESSAGES: function(state, status) {
       state.fetchMessagesStatus = status
+    },
+    SET_HAS_PREVIOUS_MESSAGES: function(state, status) {
+      state.hasPreviousMessages = status
     }
   },
   actions: {
     setMessages({commit}, messages) {
       commit('SET_MESSAGES', messages)
+
+      if (messages.length < NUMBER_OF_EXPECTED_MESSAGES) {
+        commit('SET_HAS_PREVIOUS_MESSAGES', false)
+      } else {
+        commit('SET_HAS_PREVIOUS_MESSAGES', true)
+      }
     },
     addMessagesAfter({commit}, messages) {
       commit('ADD_MESSAGES_AFTER', messages)
     },
     addMessagesBefore({commit}, messages) {
       commit('ADD_MESSAGES_BEFORE', messages)
+
+      if (messages.length == 0) {
+        commit('SET_HAS_PREVIOUS_MESSAGES', false)
+      }
     },
     setMessagesQuerying({commit}, messagesQuerying) {
       commit('SET_MESSAGES_QUERYING', messagesQuerying)

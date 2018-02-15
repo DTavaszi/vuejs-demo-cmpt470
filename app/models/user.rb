@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_many :message_notifications, class_name: 'MessageNotification', foreign_key: 'recipient_id', dependent: :destroy
 
+  NUMBER_OF_EXPECTED_MESSAGES = 25
+
   def friendships
     sent_friendships.or(received_friendships)
   end
@@ -29,6 +31,6 @@ class User < ApplicationRecord
   end
 
   def messages_with_limited friend_id
-    messages_with(friend_id).last(5)
+    messages_with(friend_id).last(NUMBER_OF_EXPECTED_MESSAGES)
   end
 end
