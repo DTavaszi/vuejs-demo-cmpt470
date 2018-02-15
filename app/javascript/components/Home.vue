@@ -4,11 +4,10 @@
     <mainUI>
       <template slot="title"> AppTitle </template>
       <template slot="drawer">
-        <conversationsUI :items="items" title="Friends"></conversationsUI>
-        <v-divider></v-divider>
-        <conversationsUI :items="items" title="Users"></conversationsUI>
+        <conversationsUI title="Friends" :items="items" :selectedItem.sync="selectedItem"></conversationsUI>
       </template>
-        <showUser v-if="isUserSelection"></showUser>
+
+      <showUser v-if="!!selectedUser" :selectedUser="selectedUser"></showUser>
     </mainUI>
   </div>
 </template>
@@ -23,9 +22,17 @@ import getMessageNotifications from 'components/MessageNotifications/getNotifica
 const USER_TYPE = 'user'
 
 export default {
+  data: () => {
+    return {
+      selectedItem: -1
+    }
+  },
   computed: {
     users: function () {
       return this.$store.getters.users
+    },
+    selectedUser: function () {
+      return this.users.find(usr => usr.id == this.selectedItem)
     },
     messageNotifications: function () {
       return this.$store.getters.messageNotifications
@@ -39,7 +46,7 @@ export default {
         var notify = false
 
         if (!!messageNotification) {
-          if (messageNotification.sender_id != app.$store.getters.selectedItem) {
+          if (messageNotification.sender_id != app.selectedItem) {
             notify = messageNotification.notify
           }
           if (!!messageNotification.message) {
@@ -54,13 +61,10 @@ export default {
           title: user.email,
           subtitle: message,
           notify: notify,
-          active: (app.$store.getters.selectedType == USER_TYPE && app.$store.getters.selectedItem == user.id),
+          active: app.selectedItem == user.id,
           avatar: 'https://www.gravatar.com/avatar/' + user.email
         }
       })
-    },
-    isUserSelection: function () {
-      return this.$store.getters.selectedType == USER_TYPE
     }
   },
   created: function () {

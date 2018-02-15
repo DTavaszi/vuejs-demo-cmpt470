@@ -7,6 +7,9 @@ import messagesREST from './messagesREST'
 const QUERY_INTERVAL = 500
 
 export default {
+  props: {
+    user: Object
+  },
   data: function (){
     return {
       switched: true
@@ -16,9 +19,6 @@ export default {
     this.update()
   },
   computed: {
-    user: function () {
-      return this.$store.getters.users.find(usr => usr.id == this.$store.getters.selectedItem)
-    },
     querying: function () {
       return this.$store.getters.messagesQuerying
     },
@@ -38,7 +38,6 @@ export default {
       var app = this
       setInterval(function() {
         if (!app.querying && !!app.user) {
-          if (app.$store.getters.selectedType == 'user') {
             if (!!app.lastMessage && !app.switched) {
               messagesREST.getMessagesAfter(app, app.user, app.lastMessage)
             } else {
@@ -46,9 +45,8 @@ export default {
               app.switched = false
             }
             app.$store.dispatch('setMessagesQuerying', true)
-          } else {
-            app.$store.dispatch('setMessages', [])
-          }
+        } else {
+          app.$store.dispatch('setMessages', [])
         }
       }, QUERY_INTERVAL)
     }

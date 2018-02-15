@@ -1,6 +1,6 @@
 <template>
   <div class="showUser">
-    <updateMessages></updateMessages>
+    <updateMessages :user="selectedUser"></updateMessages>
     <v-toolbar flat>
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
@@ -41,10 +41,10 @@ export default {
       firstLoad: true // The first time the window loads, scroll to bottom
     }
   },
+  props: {
+    selectedUser: Object
+  },
   computed: {
-    selectedUser: function() {
-      return this.$store.getters.users.find(usr => usr.id == this.$store.getters.selectedItem)
-    },
     messages: function() {
       var app = this
       return this.$store.getters.messages

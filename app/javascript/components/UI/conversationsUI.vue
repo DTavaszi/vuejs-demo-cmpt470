@@ -20,12 +20,12 @@
 export default {
   props: {
     title: String,
-    items: Array
+    items: Array,
+    selectedItem: Number
   },
   methods: {
     selectItem: function(item) {
-      this.$store.dispatch('setSelection', item.id)
-      this.$store.dispatch('setSelectedType', item.type)
+      this.$emit('update:selectedItem', item.id)
     }
   }
 }
