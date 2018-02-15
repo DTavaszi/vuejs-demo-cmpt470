@@ -2,7 +2,8 @@ const messages = {
   state: {
     messages: [],
     messagesQuerying: false,
-    token: 0
+    token: 0,
+    fetchMessagesStatus: true
   },
   mutations: {
     SET_MESSAGES: function(state, messages) {
@@ -27,6 +28,9 @@ const messages = {
       if (index >= 0) {
         state.messages[index] = new_message
       }
+    },
+    SET_FETCH_MESSAGES: function(state, status) {
+      state.fetchMessagesStatus = status
     }
   },
   actions: {
@@ -47,12 +51,16 @@ const messages = {
     },
     updateMessage({commit}, payload) {
       commit('UPDATE_MESSAGE', payload)
+    },
+    setFetchMessages({commit}, status) {
+      commit('SET_FETCH_MESSAGES', status)
     }
   },
   getters: {
     messages: state => state.messages,
     messagesQuerying: state => state.messagesQuerying,
-    token: state => state.token++
+    token: state => state.token++,
+    fetchMessagesStatus: state => state.fetchMessagesStatus
   }
 }
 

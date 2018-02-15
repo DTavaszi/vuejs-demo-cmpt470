@@ -32,10 +32,18 @@ export default {
     .then(function (response) {
       context.$store.dispatch('setMessages', response.data)
       context.$store.dispatch('setMessagesQuerying', false)
+      context.$store.dispatch('setFetchMessages', true)
     })
     .catch(function (error) {
-      console.log(error)
       context.$store.dispatch('setMessagesQuerying', false)
+      if (error.response) {
+        console.log(error.response)
+      } else if (error.request) {
+        console.log(error.request)
+        context.$store.dispatch('setFetchMessages', false)
+      } else {
+        console.log ('Error', error.message)
+      }
     })
   },
   getMessagesAfter: function (context, user, message) {
@@ -43,10 +51,18 @@ export default {
     .then(function (response) {
       context.$store.dispatch('addMessagesAfter', response.data)
       context.$store.dispatch('setMessagesQuerying', false)
+      context.$store.dispatch('setFetchMessages', true)
     })
     .catch(function (error) {
-      console.log(error)
       context.$store.dispatch('setMessagesQuerying', false)
+      if (error.response) {
+        console.log(error.response)
+      } else if (error.request) {
+        console.log(error.request)
+        context.$store.dispatch('setFetchMessages', false)
+      } else {
+        console.log ('Error', error.message)
+      }
     })
   },
   getMessagesBefore: function (context, user, message) {
@@ -54,10 +70,18 @@ export default {
     .then(function (response) {
       context.$store.dispatch('setMessagesBefore', response.data)
       context.$store.dispatch('setMessagesQuerying', false)
+      context.$store.dispatch('setFetchMessages', true)
     })
     .catch(function (error) {
-      console.log(error)
       context.$store.dispatch('setMessagesQuerying', false)
+      if (error.response) {
+        console.log(error.response)
+      } else if (error.request) {
+        console.log(error.request)
+        context.$store.dispatch('setFetchMessages', false)
+      } else {
+        console.log ('Error', error.message)
+      }
     })
   }
 }

@@ -5,6 +5,9 @@
       <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
     <v-container ref="conversation" grid-list-md text-xs-center class="conversation" @click="focusText()">
+      <v-alert type="error" :value="!fetchMessagesStatus">
+      Cannot connect to server. Please check your internet connection.
+      </v-alert>
       <template v-if="firstLoad == true">
         <div class="progress-spinner">
           <v-progress-circular indeterminate :size="50" color="primary"></v-progress-circular>
@@ -12,7 +15,7 @@
       </template>
       <template v-else>
         <div>
-          You are now connected.
+          You and {{ selectedUser.email }} are now friends.
         </div>
         <template v-for="message in messages">
           <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
@@ -52,8 +55,11 @@ export default {
     friends: function() {
       return this.$store.getters.users
     },
-    formatted_message: function() {
+    formattedMessage: function() {
       return { token: this.$store.getters.token, sender_id: this.currentUser.id, recipient_id: this.selectedUser.id, message: this.message }
+    },
+    fetchMessagesStatus: function () {
+      return this.$store.getters.fetchMessagesStatus
     }
   },
   watch: {
@@ -76,11 +82,11 @@ export default {
       this.message = ''
     },
     sendMessage: function() {
-      var formatted_message = this.formatted_message
+      var formattedMessage = this.formattedMessage
 
-      if (formatted_message.message.length > 0) {
-        this.$store.dispatch('addMessage', formatted_message)
-        messagesREST.sendMessage(this, formatted_message)
+      if (formattedMessage.message.length > 0) {
+        this.$store.dispatch('addMessage', formattedMessage)
+        messagesREST.sendMessage(this, formattedMessage)
         this.resetMessage()
       }
     },
