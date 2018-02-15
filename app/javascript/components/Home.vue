@@ -1,9 +1,13 @@
 <template>
   <div>
     <getMessageNotifications></getMessageNotifications>
-    <mainUI :items="items">
+    <mainUI>
       <template slot="title"> AppTitle </template>
-
+      <template slot="drawer">
+        <conversationsUI :items="items" title="Friends"></conversationsUI>
+        <v-divider></v-divider>
+        <conversationsUI :items="items" title="Users"></conversationsUI>
+      </template>
         <showUser v-if="isUserSelection"></showUser>
     </mainUI>
   </div>
@@ -11,10 +15,10 @@
 
 <script>
 import mainUI from 'components/UI/mainUI'
+import conversationsUI from 'components/UI/conversationsUI'
 import userRequests from 'components/Users/userRequests'
 import showUser from 'components/Users/show'
 import getMessageNotifications from 'components/MessageNotifications/getNotifications'
-
 
 const USER_TYPE = 'user'
 
@@ -25,9 +29,6 @@ export default {
     },
     messageNotifications: function () {
       return this.$store.getters.messageNotifications
-    },
-    isLoggedIn: function() {
-      return this.$store.getters.isLoggedIn
     },
     items: function () {
       var app = this
@@ -67,6 +68,7 @@ export default {
   },
   components: {
     mainUI,
+    conversationsUI,
     showUser,
     getMessageNotifications
   }
