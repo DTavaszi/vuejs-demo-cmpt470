@@ -15,7 +15,7 @@
       </template>
       <template v-else>
         <div>
-          You and {{ selectedUser.email }} are now friends.
+          You and {{ username }} are friends.
         </div>
         <template v-for="message in messages">
           <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
@@ -48,14 +48,17 @@ export default {
     selectedUser: Object
   },
   computed: {
-    messages: function() {
+    username: function () {
+      return this.selectedUser.username.length > 0 ? this.selectedUser.username : this.selectedUser.email
+    },
+    messages: function () {
       var app = this
       return this.$store.getters.messages
     },
-    friends: function() {
+    friends: function () {
       return this.$store.getters.users
     },
-    formattedMessage: function() {
+    formattedMessage: function () {
       return { token: this.$store.getters.token, sender_id: this.currentUser.id, recipient_id: this.selectedUser.id, message: this.message }
     },
     fetchMessagesStatus: function () {
@@ -63,7 +66,7 @@ export default {
     }
   },
   watch: {
-    messages: function(newMessages, oldMessages) {
+    messages: function (newMessages, oldMessages) {
       if (newMessages.length != oldMessages.length) {
         this.scrollBottom() // only scroll to bottom if there are new messages (assumed to be increasing in length)
       }
@@ -72,16 +75,16 @@ export default {
         this.firstLoad = false
       }
     },
-    selectedUser: function(newUser, oldUser) {
+    selectedUser: function (newUser, oldUser) {
       this.firstLoad = true // If selected user changes, then scroll to bottom
       this.focusText()
     }
   },
   methods: {
-    resetMessage: function() {
+    resetMessage: function () {
       this.message = ''
     },
-    sendMessage: function() {
+    sendMessage: function () {
       var formattedMessage = this.formattedMessage
 
       if (formattedMessage.message.length > 0) {
@@ -90,16 +93,16 @@ export default {
         this.resetMessage()
       }
     },
-    currentIsSender: function(message) {
+    currentIsSender: function (message) {
       return message.sender_id == this.currentUser.id
     },
-    focusText: function() {
+    focusText: function () {
       if (window.getSelection().toString().length == 0) {
         this.$nextTick(() => this.$refs.messageInput.focus())
       }
     },
-    scrollBottom: function() {
-      this.$nextTick(() => {
+    scrollBottom: function () {
+      this.$nextTick( () => {
         if (this.firstLoad ||
               this.$refs.conversation.scrollTop >= (this.$refs.conversation.scrollHeight - this.$refs.conversation.clientHeight - 150)) {
           this.$refs.conversation.scrollTop = this.$refs.conversation.scrollHeight
