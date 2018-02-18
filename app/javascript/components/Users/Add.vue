@@ -12,13 +12,14 @@
 </template> -->
 
 <template>
-<div id="get-user">
+<div id="get-user" style="top: 10%;">
   <v-app ml-3>
         <v-layout row wrap>
           <v-flex xs8 sm2 ml-3>
             <v-text-field
               v-model="newUser.email"
               label="Email"
+              required
             ></v-text-field>
           </v-flex>
           <v-flex xs8 sm2 ml-3>
@@ -31,6 +32,7 @@
             <v-text-field
               v-model="newUser.password"
               label="Password"
+              required
             ></v-text-field>
           </v-flex>
           <v-flex ml-5 mt-4>

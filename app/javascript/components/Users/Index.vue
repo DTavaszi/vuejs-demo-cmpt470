@@ -1,7 +1,7 @@
 <template>
-  <div id="users" v-if="users.length > 0">
+  <div id="users" v-if="users.length > 0" style="position:absolute;top:20%;">
     <h3> Current Users ({{ users.length }}) </h3>
-    <table style="border-collapse: collapse; width:100%">
+    <table style="border-collapse: collapse; width:200%">
       <tr style="text-align: left; padding: 8px;">
         <th class="text-xs-right">ID</th>
         <th class="text-xs-right">Email</th>
