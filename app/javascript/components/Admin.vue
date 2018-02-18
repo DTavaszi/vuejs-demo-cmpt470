@@ -10,57 +10,55 @@
 </template> -->
 
 <template>
-  <v-app id="inspire">
-    <v-navigation-drawer
-      fixed
-      v-model="drawer"
-      app
-    >
-    <v-avatar size="125px">
-    <img class="img-circle elevation-7 mb-1" src="#"/>
-    </v-avatar>
-    <div class="heading text-m-right pt-1 pb-3">
-    <span style="float:right; margin-right:25%">ADMIN</span>
-    </div>
-    <br/>
-    <v-divider></v-divider>
-      <v-list dense>
-        <v-list-tile @click="show = !show">
+  <v-app>
+    <v-navigation-drawer fixed clipped app v-model="drawer">
+      <h1 style="top:10%;">ADMIN</h1>
+      <v-divider></v-divider>
+        <v-list>
+          <v-list-tile @click="show = !show">
           <v-list-tile-action>
             <v-icon>person</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Users</v-list-tile-title>
-          </v-list-tile-content>
+          <v-list-tile-content>Users</v-list-tile-content>
         </v-list-tile>
-        <v-list-tile if @click="">
+        <v-list-tile @click="">
           <v-list-tile-action>
             <v-icon>email</v-icon>
           </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Message</v-list-tile-title>
-          </v-list-tile-content>
+          <v-list-tile-content>Messages</v-list-tile-content>
         </v-list-tile>
-      </v-list>
+        </v-list>
     </v-navigation-drawer>
-    <v-toolbar color="indigo" dark fixed app>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Application</v-toolbar-title>
+
+    <v-toolbar color="blue darken-3" dark app clipped-left fixed>
+      <v-toolbar-title :style="$vuetify.breakpoint.smAndUp ? 'width: 300px; min-width: 250px' : 'min-width: 72px'" class="ml-0 pl-3">
+        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <span class="hidden-xs-only">ChatApp</span>
+      </v-toolbar-title>
+      <v-text-field light solo prepend-icon="search" placeholder="Search" style="max-width: 500px; min-width: 128px"></v-text-field>
+      <div class="d-flex align-center" style="margin-left: auto">
+        <v-btn icon>
+          <v-icon>apps</v-icon>
+        </v-btn>
+        <v-btn icon>
+          <v-icon>notifications</v-icon>
+        </v-btn>
+        <v-btn icon large>
+          <v-avatar size="32px" tile>
+            <img
+              src="https://vuetifyjs.com/static/doc-images/logo.svg"
+              alt="Vuetify">
+          </v-avatar>
+        </v-btn>
+      </div>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout v-if="show"
-          justify-center
-          align-center
-        >
-            <Users></Users>
-
+      <v-container fluid fill-height class="no-padding">
+        <v-layout justify-center align-center>
+          <Users></Users>
         </v-layout>
       </v-container>
     </v-content>
-    <v-footer color="indigo" app>
-      <span class="white--text">&copy; 2017</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -74,7 +72,9 @@ import Messages from './Messages'
 export default {
   data: function() {
     return {
-      show: false
+      show: false,
+      dialog: false,
+      drawer: null
     }
   },
   components: {
