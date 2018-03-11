@@ -2,7 +2,7 @@
   <div>
     <getMessageNotifications></getMessageNotifications>
     <mainUI>
-      <template slot="title"> AppTitle </template>
+      <template slot="title">Demo Chat App</template>
       <template slot="drawer">
         <conversationsUI title="Friends" :items="items" :selectedItem.sync="selectedItem"></conversationsUI>
       </template>
