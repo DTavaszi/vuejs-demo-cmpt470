@@ -2,7 +2,7 @@
   <div class="showUser">
     <updateMessages :user="selectedUser"></updateMessages>
     <v-toolbar flat>
-      <v-toolbar-title class="showUser-title">{{ selectedUser.username.length > 0 ? selectedUser.username : selectedUser.email }}</v-toolbar-title>
+      <v-toolbar-title class="showUser-title">{{ selectedUser.email }}</v-toolbar-title>
     </v-toolbar>
     <v-container ref="conversation" grid-list-md text-xs-center class="conversation" @scroll.passive="onScroll()" @click="focusText()">
       <v-alert type="error" :value="!fetchMessagesStatus">
@@ -15,9 +15,14 @@
       </template>
       <template v-else>
         <div v-if="!hasPreviousMessages || messages.length == 0">
-          You and {{ username }} are friends. <v-btn color="red" small @click="removeFriend()"> Remove </v-btn>
+          <template v-if="isFriend()">
+            You and {{ username }} are friends. <v-btn color="red" small @click="removeFriend()"> Remove </v-btn>
+          </template>
+          <template v-else>
+            You and {{ username }} are no longer friends.
+          </template>
         </div>
-        <template v-for="message in messages">
+        <template v-if="isFriend()" v-for="message in messages">
           <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
           <leftSide v-else :message="message"></leftSide>
         </template>
@@ -144,7 +149,11 @@ export default {
         messagesREST.getMessagesBefore(this, this.selectedUser, this.firstMessage)
       }
     },
+    isFriend: function() {
+      return this.$store.getters.current_friends.find(friend => friend.sender_id == this.selectedUser.id)
+    },
     removeFriend: function () {
+      var friend = this.isFriend()
       friendsREST.removeFriend(this, friend)
     }
   },

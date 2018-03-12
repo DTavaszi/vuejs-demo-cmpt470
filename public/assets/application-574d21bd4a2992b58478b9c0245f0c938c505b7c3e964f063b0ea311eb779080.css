@@ -1,0 +1,135 @@
+/* line 1, /vagrant/app/assets/stylesheets/app.scss */
+html {
+  overflow: auto !important;
+}
+
+/* line 5, /vagrant/app/assets/stylesheets/app.scss */
+.rightSide {
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: right;
+}
+
+/* line 12, /vagrant/app/assets/stylesheets/app.scss */
+.leftSide {
+  width: fit-content;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+}
+
+/* line 19, /vagrant/app/assets/stylesheets/app.scss */
+.showUser {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 25, /vagrant/app/assets/stylesheets/app.scss */
+.no-padding {
+  padding: 0px !important;
+}
+
+/* line 29, /vagrant/app/assets/stylesheets/app.scss */
+.showUser-title {
+  font-size: 1.2em !important;
+  margin: 0 auto !important;
+}
+
+/* line 34, /vagrant/app/assets/stylesheets/app.scss */
+.list__tile--active {
+  background-color: #eeeeee;
+}
+
+/* line 38, /vagrant/app/assets/stylesheets/app.scss */
+.messageCard {
+  padding: 10px !important;
+}
+
+/* line 42, /vagrant/app/assets/stylesheets/app.scss */
+div.footer-filler {
+  height: 100px;
+  width: 100%;
+}
+
+/* line 47, /vagrant/app/assets/stylesheets/app.scss */
+div.conversation {
+  position: relative;
+  overflow-y: scroll;
+  height: calc(100vh - 202px);
+}
+
+/* line 53, /vagrant/app/assets/stylesheets/app.scss */
+.height-auto {
+  height: auto !important;
+}
+
+/* line 57, /vagrant/app/assets/stylesheets/app.scss */
+.message-card {
+  position: relative;
+  z-index: 50;
+}
+
+/* line 62, /vagrant/app/assets/stylesheets/app.scss */
+.application li > a {
+  color: #444;
+}
+
+/* line 66, /vagrant/app/assets/stylesheets/app.scss */
+div.progress-spinner {
+  padding-top: 100px;
+}
+
+/* line 70, /vagrant/app/assets/stylesheets/app.scss */
+.hidden {
+  display: none;
+}
+
+/* line 74, /vagrant/app/assets/stylesheets/app.scss */
+.navigation-drawer {
+  z-index: 0 !important;
+}
+
+/* line 77, /vagrant/app/assets/stylesheets/app.scss */
+.search-list {
+  position: absolute;
+  max-width: 500px;
+  min-width: 128px;
+  width: 400px;
+  color: #333;
+}
+
+/* line 84, /vagrant/app/assets/stylesheets/app.scss */
+.search-user {
+  list-style-type: none;
+  background-color: #f3f3f3;
+  height: 40px;
+  min-width: 280px;
+  color: #333;
+  border-bottom: 1px solid silver;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+ .landing_text {
+    font-size: 16pt;
+  }
+
+  .landing_title {
+    font-size: 24pt;
+    color: white;
+  }

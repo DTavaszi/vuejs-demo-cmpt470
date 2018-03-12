@@ -1,7 +1,7 @@
 <template>
   <div>
     <getMessageNotifications></getMessageNotifications>
-    <getUsers></getUsers>
+    <!-- <getUsers></getUsers> -->
     <getFriends></getFriends>
 
     <mainUI>
@@ -113,6 +113,9 @@ export default {
       this.$store.dispatch('setFriendsPending', friends_pending)
       this.$store.dispatch('setFriendRequests', friend_requests)
     }
+  },
+  created: function () {
+    userRequests.getUsers(this)
   },
   components: {
     mainUI,
