@@ -18,7 +18,7 @@ export default {
 
         set_auth_token(context, authUser)
         console.log('Logged in: ' + context.$store.getters.isLoggedIn)
-        context.$router.push('/')
+        context.$router.push('/conversations')
       })
       .catch(function(error) {
         console.log("Invalid credentials.")
@@ -29,6 +29,7 @@ export default {
     HTTPService.delete(LOGOUT_PATH)
       .then(function(response) {
         remove_auth_token(context)
+        context.$router.push('/')
       })
       .catch(e => {
         console.log("Error logging out.")

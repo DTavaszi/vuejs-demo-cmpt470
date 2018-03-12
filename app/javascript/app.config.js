@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-//const API_ENDPOINT = "http://localhost:3000"
+const API_ENDPOINT = "http://localhost:3000"
 const GRAVATAR_URL = "https://www.gravatar.com/avatar/"
-const API_ENDPOINT = "https://cmpt470-vuejs.herokuapp.com/"
+//const API_ENDPOINT = "https://cmpt470-vuejs.herokuapp.com/"
 
 const HEADERS = function() {
   const headers = {
