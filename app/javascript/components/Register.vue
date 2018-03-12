@@ -14,7 +14,7 @@
                   <form v-on:submit.prevent="register()">
                     <v-layout row>
                       <v-flex xs12>
-                        <v-text-field label="Email" v-model="newUser.email" :rules="emailRules" type="email" prepend-icon="email" required />
+                        <v-text-field label="Email" v-model="newUser.email" :rules="emailRules" :error-messages="emailValidation" type="email" prepend-icon="email" required />
                       </v-flex>
                     </v-layout>
                     <v-layout row>
@@ -56,7 +56,7 @@ export default {
         email: '',
         username: '',
         password: '',
-        password_confirmation: '',
+        password_confirmation: ''
       },
       emailRules: [
         v => !!v || 'Email is required',
@@ -69,7 +69,8 @@ export default {
       confirmationRules: [
         v => !!v || 'Please confirm password',
         v => (v && v == this.newUser.password) || 'Passwords do not match'
-      ]
+      ],
+      emailValidation: []
     }
   },
   computed: {
@@ -79,7 +80,14 @@ export default {
   },
   methods: {
     register: function() {
+      var app = this
       authentication.register(this, this.newUser)
+      .then(function(response) {
+        app.emailValidation = []
+      })
+      .catch(function(error) {
+        app.emailValidation = ['An account already exists with this e-mail']
+      })
     }
   }
 }

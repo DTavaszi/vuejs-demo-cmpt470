@@ -56,14 +56,18 @@ export default {
     })
   },
   register(context, newUser) {
-    HTTPService.post(REGISTER_USER_PATH, { "user": newUser })
-    .then(function(response) {
-      context.$store.dispatch('setLoggedIn', true)
-      context.$store.dispatch('setCurrentUser', response.data)
-      context.$router.push('/conversations')
-    })
-    .catch(function(error) {
-      console.log("Registration failed.")
+    return new Promise((resolve, reject) => {
+      HTTPService.post(REGISTER_USER_PATH, { "user": newUser })
+      .then(function(response) {
+        context.$store.dispatch('setLoggedIn', true)
+        context.$store.dispatch('setCurrentUser', response.data)
+        context.$router.push('/conversations')
+        resolve()
+      })
+      .catch(function(error) {
+        reject()
+        console.log("Registration failed.")
+      })
     })
   }
 }
