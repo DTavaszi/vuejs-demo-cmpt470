@@ -8,7 +8,7 @@
       </v-btn>
       <span class="hidden-xs-only">Vue Messenger</span>
     </v-toolbar-title>
-    <v-text-field light solo prepend-icon="search" placeholder="Search" style="max-width: 500px; min-width: 128px"></v-text-field>
+    <findByEmail/>
     <div class="d-flex align-center" style="margin-left: auto">
       <template v-if="loggedIn">
         <span> Hi {{ user.email }}! </span>
@@ -20,6 +20,7 @@
 
 <script>
 import authentication from 'components/Login/authentication'
+import findByEmail from 'components/Friends/findByEmail'
 
 export default {
   computed: {
@@ -37,6 +38,9 @@ export default {
     logout: function() {
       authentication.logout(this)
     }
+  },
+  components: {
+    findByEmail
   }
 }
 </script>

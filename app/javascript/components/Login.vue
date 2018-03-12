@@ -9,12 +9,12 @@
                 <form v-on:submit.prevent="loginUser()">
                   <v-layout row>
                     <v-flex xs8>
-                      <v-text-field label="Email" v-model="loginDetails.email" type="email" single-line prepend-icon="email" />
+                      <v-text-field label="Email" v-model="loginDetails.email" :rules="emailRules" :error-messages="userValidation" type="email" single-line prepend-icon="email" />
                     </v-flex>
                   </v-layout>
                   <v-layout row>
                     <v-flex xs8>
-                      <v-text-field label="Password" v-model="loginDetails.password" type="password" single-line prepend-icon="lock" />
+                      <v-text-field label="Password" v-model="loginDetails.password" :rules="passwordRules" :error-messages="passwordValidation" type="password" single-line prepend-icon="lock" />
                     </v-flex>
                   </v-layout>
                   <v-layout row>
@@ -25,6 +25,8 @@
                     </v-flex>
                   </v-layout>
                 </form>
+                </br>
+                <router-link to="/">Go back</router-link>
               </v-container>
             </v-card-text>
           </v-card>
@@ -43,12 +45,32 @@ export default {
       loginDetails: {
         email: '',
         password: ''
-      }
+      },
+      loginError: false,
+      emailRules: [
+        v => !!v || 'Email is required',
+        v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Email must be valid'
+      ],
+      passwordRules: [
+        v => !!v || 'Password is required'
+      ],
+      userValidation: [],
+      passwordValidation: []
     }
   },
   methods: {
     loginUser: function() {
+      var app = this
       authentication.login(this, this.loginDetails)
+      .then(function(response) {
+        app.userValidation = []
+        app.passwordValidation = []
+        console.log(response)
+      })
+      .catch(function(error) {
+        app.userValidation = ['Invalid login']
+        app.passwordValidation = ['']
+      })
     }
   }
 }

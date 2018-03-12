@@ -11,7 +11,8 @@ export default {
     console.log("Attempting login...")
     var app = context
     const authUser = {}
-    HTTPService.post(LOGIN_PATH, loginDetails)
+    return new Promise((resolve, reject) => {
+      HTTPService.post(LOGIN_PATH, loginDetails)
       .then(function(response) {
         authUser.data = response.data
         authUser.token = response.token
@@ -19,11 +20,14 @@ export default {
         set_auth_token(context, authUser)
         console.log('Logged in: ' + context.$store.getters.isLoggedIn)
         context.$router.push('/conversations')
+        resolve()
       })
       .catch(function(error) {
         console.log("Invalid credentials.")
         console.log(error.data)
+        reject()
       })
+    })
   },
   logout(context) {
     HTTPService.delete(LOGOUT_PATH)
@@ -56,7 +60,7 @@ export default {
     .then(function(response) {
       context.$store.dispatch('setLoggedIn', true)
       context.$store.dispatch('setCurrentUser', response.data)
-      context.$router.push('/')
+      context.$router.push('/conversations')
     })
     .catch(function(error) {
       console.log("Registration failed.")

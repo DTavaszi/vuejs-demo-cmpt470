@@ -1,15 +1,8 @@
 <template>
-  <div>
-    <userFriends :friends="friends"></userFriends>
-    <userRequests :friend_requests="friend_requests"></userRequests>
-    <userPending :friends_pending="friends_pending"></userPending>
-    <findByEmail></findByEmail>
-  </div>
 </template>
 
 <script>
 import friendsREST from './Friends/friendsREST'
-
 import userFriends from './Friends/userFriends'
 import userRequests from './Friends/userRequests'
 import userPending from './Friends/userPending'
@@ -59,6 +52,35 @@ export default {
       this.friend_requests = (!!friend_requests ? friend_requests : [])
       this.friends_pending = (!!friends_pending ? friends_pending : [])
       this.friends = (!!friends ? friends : [])
+    },
+    items: function () {
+      var app = this
+      return this.users.map(function(user) {
+        var messageNotification = app.messageNotifications.find(mn => mn.recipient_id == app.$store.getters.currentUser.id
+                    && mn.sender_id == user.id)
+        var message = ' '
+        var notify = false
+
+        if (!!messageNotification) {
+          if (messageNotification.sender_id != app.selectedItem) {
+            notify = messageNotification.notify
+          }
+          if (!!messageNotification.message) {
+            message = messageNotification.message.message
+          }
+        }
+
+        return {
+          id: user.id,
+          type: USER_TYPE,
+          icon: 'person_pin',
+          title: user.email,
+          subtitle: message,
+          notify: notify,
+          active: app.selectedItem == user.id,
+          avatar: 'https://www.gravatar.com/avatar/' + user.email
+        }
+      })
     }
   },
   created: function() {

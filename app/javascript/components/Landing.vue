@@ -14,6 +14,9 @@
                     This simple messenger is powered by <strong>VueJS</strong> and styled using <strong>Vuetify</strong>.
                   </p>
                   <p> Please login or register below to start chatting! </p>
+
+                  </br>
+
                   <v-layout row>
                     <v-flex xs6>
                       Existing users <br/>

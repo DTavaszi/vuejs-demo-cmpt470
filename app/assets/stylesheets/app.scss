@@ -66,3 +66,26 @@ div.conversation {
 div.progress-spinner {
   padding-top: 100px;
 }
+
+.hidden {
+  display: none;
+}
+
+.navigation-drawer {
+  z-index: 0 !important;
+}
+.search-list {
+  position: absolute;
+  max-width: 500px;
+  min-width: 128px;
+  width: 400px;
+  color: #333;
+}
+.search-user {
+  list-style-type: none;
+  background-color: #f3f3f3;
+  height: 40px;
+  min-width: 280px;
+  color: #333;
+  border-bottom: 1px solid silver;
+}

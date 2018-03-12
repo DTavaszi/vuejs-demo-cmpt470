@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <p>
-      Search for a user
-    </p>
-    <p> {{ message }} </p>
-    <input v-model="email" placeholder="Email">
-    <ul>
-      <li v-for="user in foundUsers">
-        {{ user }}
-        <button @click="addFriend(user)">&plus; Friend</button>
-      </li>
-    </ul>
-
-  </div>
+  <span>
+    <span :class="{ hidden: !searching }" @click="toggle(false)" style="position: absolute; z-index: 0; width: 100%; height: 100vh; top: 0; left: 0" />
+    <span>
+      <v-text-field v-model="email" @focus="toggle(true)" light solo prepend-icon="search" placeholder="Search" style="max-width: 500px; min-width: 128px"></v-text-field>
+      <ul  class="search-list" :class="{ hidden: !searching }">
+        <li v-for="user in foundUsers" class="search-user">
+          <span style="line-height: 3em; padding-left: 10px;">
+            {{ user.email }}
+          </span>
+          <v-btn style="float: right;" color="blue" @click="addFriend(user)" small>&plus; Friend</v-btn>
+        </li>
+      </ul>
+    </span>
+  </span>
 </template>
 
 <script>
@@ -23,7 +23,8 @@ export default {
     return {
       email: '',
       message: 'Enter an email address',
-      foundUsers: []
+      foundUsers: [],
+      searching: false
     }
   },
   computed: {
@@ -38,6 +39,9 @@ export default {
     }
   },
   methods: {
+    toggle: function (status) {
+      this.searching = status
+    },
     // Implement throttler like lodash _.debounce
     findUsersByEmail: function() {
       if (this.email.length > 0) {
