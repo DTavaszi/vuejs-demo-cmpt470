@@ -8,7 +8,10 @@
           <span style="line-height: 3em; padding-left: 10px;">
             {{ user.email }}
           </span>
-          <v-btn style="float: right;" color="blue" @click="addFriend(user)" small>&plus; Friend</v-btn>
+          <v-btn v-if="isFriend(user)" style="float: right;" color="red" @click="removeFriend(user)" small>✖ Friend</v-btn>
+          <v-btn v-else-if="isRequesting(user)" style="float: right;" color="blue" @click="addFriend(user)" small> Requested </v-btn>
+          <v-btn v-else-if="isPending(user)" style="float: right;" color="green" @click="addFriend(user)" small>&plus; Accept</v-btn>
+          <v-btn v-else style="float: right;" color="blue" @click="addFriend(user)" small>&plus; Friend</v-btn>
         </li>
       </ul>
     </span>
@@ -59,6 +62,19 @@ export default {
     },
     addFriend: function(user) {
       friendsREST.addFriend(this, user)
+    },
+    removeFriend: function(user) {
+      var friend = this.isFriend(user)
+      friendsREST.removeFriend(this, friend)
+    },
+    isFriend: function(user) {
+      return this.$store.getters.current_friends.find(friend => friend.sender_id == user.id)
+    },
+    isRequesting: function(user) {
+      return this.$store.getters.friend_requests.find(friend => friend.recipient_id == user.id)
+    },
+    isPending: function(user) {
+      return this.$store.getters.friends_pending.find(friend => friend.sender_id == user.id)
     }
   }
 }

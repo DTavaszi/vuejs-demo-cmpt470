@@ -15,7 +15,7 @@
       </template>
       <template v-else>
         <div v-if="!hasPreviousMessages || messages.length == 0">
-          You and {{ username }} are friends.
+          You and {{ username }} are friends. <v-btn color="red" small @click="removeFriend()"> Remove </v-btn>
         </div>
         <template v-for="message in messages">
           <rightSide v-if="currentIsSender(message)" :message="message"></rightSide>
@@ -32,6 +32,7 @@
 
 <script>
 import messagesREST from 'components/Messages/messagesREST'
+import friendsREST from 'components/Friends/friendsREST'
 import updateMessages from 'components/Messages/updateMessages'
 import leftSide from 'components/Messages/leftSide'
 import rightSide from 'components/Messages/rightSide'
@@ -50,7 +51,7 @@ export default {
   },
   computed: {
     username: function () {
-      return this.selectedUser.username.length > 0 ? this.selectedUser.username : this.selectedUser.email
+      return this.selectedUser.email
     },
     messages: function () {
       return this.$store.getters.messages
@@ -142,6 +143,9 @@ export default {
       if (this.hasPreviousMessages) {
         messagesREST.getMessagesBefore(this, this.selectedUser, this.firstMessage)
       }
+    },
+    removeFriend: function () {
+      friendsREST.removeFriend(this, friend)
     }
   },
   components: {

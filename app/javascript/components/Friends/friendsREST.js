@@ -27,8 +27,10 @@ export default {
     HTTPService.get(GET_FRIENDS_PATH)
     .then(function(response) {
       context.$store.dispatch('setFriends', response.data)
+      context.$store.dispatch('setFriendsQuerying', false)
     })
     .catch(function(error) {
+      context.$store.dispatch('setFriendsQuerying', false)
       console.log(error)
     })
   }

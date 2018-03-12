@@ -1,6 +1,7 @@
 const users = {
   state: {
     users: [],
+    usersQuerying: false
   },
   mutations: {
     ADD_USER: function(state, user) {
@@ -11,6 +12,9 @@ const users = {
     },
     SET_USERS: function(state, users) {
       state.users = users
+    },
+    SET_USERS_QUERYING: function(state, status) {
+      state.usersQuerying = status
     }
   },
   actions: {
@@ -22,11 +26,15 @@ const users = {
     },
     setUsers({commit}, users) {
       commit('SET_USERS', users)
+    },
+    setUsersQuerying({commit}, status) {
+      commit('SET_USERS_QUERYING', status)
     }
   },
   getters: {
     newUser: state => state.newUser,
     users: state => state.users,
+    usersQuerying: state => state.usersQuerying
   }
 }
 

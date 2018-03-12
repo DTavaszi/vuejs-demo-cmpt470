@@ -28,8 +28,10 @@ export default {
     HTTPService.get(GET_USERS_PATH)
     .then(function(response) {
       context.$store.dispatch('setUsers', response.data)
+      context.$store.dispatch('setUsersQuerying', false)
     })
     .catch(function(error) {
+      context.$store.dispatch('setUsersQuerying', false)
       console.log(error)
     })
   },
