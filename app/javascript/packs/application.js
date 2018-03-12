@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
       next()
     })
     .catch(() => {
-      next('/landing')
+      next('/')
     })
   } else {
     next()

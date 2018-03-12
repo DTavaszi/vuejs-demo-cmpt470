@@ -1,141 +1,41 @@
-<!-- <template>
-  <div>
-    <h1>Login Page</h1>
-    <form v-on:submit.prevent="loginUser()">
-      <input type="email" placeholder="Email" v-model="loginDetails.email">
-      <input type="password" placeholder="Password" v-model="loginDetails.password">
-      <button type="submit" value="login"> Login </button>
-    </form>
-    <router-link to="/">Go back</router-link>
-  </div>
-</template> -->
-
-
 <template>
-  <v-app id="inspire">
-    <v-toolbar color="blue darken-3" dark app clipped-left fixed>
-      <v-toolbar-title :style="$vuetify.breakpoint.smAndUp ? 'width: 300px; min-width: 250px' : 'min-width: 72px'" class="ml-0 pl-3">
-        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-xs-only"><slot name="title">Demo Chat App</slot></span>
-      </v-toolbar-title>
-      <v-text-field light solo prepend-icon="search" placeholder="Search" style="max-width: 500px; min-width: 128px"></v-text-field>
-      <div class="d-flex align-center" style="margin-left: auto">
-        <v-btn icon>
-          <v-icon>apps</v-icon>
-        </v-btn>
-        <v-btn icon large>
-          <v-avatar size="32px" tile>
-            <img
-              src="https://vuetifyjs.com/static/doc-images/logo.svg"
-              alt="Vuetify">
-          </v-avatar>
-        </v-btn>
-      </div>
-    </v-toolbar>
-    <v-content>
-      <v-container fluid fill-height class="no-padding">
-        <v-layout row wrap>
-          
-          <v-flex xs12 sm6 offset-sm3 mt-5>
-            <v-card color="grey lighten-4">
-              <v-card-text>
-                <v-container>
-                  <form v-on:submit.prevent="loginUser()">
-                    <v-layout row>
-                      <v-flex xs8>
-                        <v-text-field 
-                          label="Email"
-                          v-model="loginDetails.email"
-                          type="email"
-                          single-line
-                          prepend-icon="email"
-                        ></v-text-field>
-                      </v-flex>
-                    </v-layout>
-                    <v-layout row>
-                      <v-flex xs8>
-                        <v-text-field
-                          label="Password"
-                          v-model="loginDetails.password"
-                          type="password"
-                          single-line
-                          prepend-icon="lock"
-                        ></v-text-field>
-                      </v-flex>
-                    </v-layout>
-                    <v-layout row>
-                      <v-flex xs12>
-                        <v-btn color="blue darken-1" type="submit" value="login">Login</v-btn>
-                        <scan>Not registered yet?</scan>
-                        <router-link to="/register">register</router-link>
-                      </v-flex>
-                    </v-layout>
-                  </form>
-                </v-container>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-
-        </v-layout>
-      </v-container>
-    </v-content>
-  </v-app>
- <!--  <div>
-    <h1>Temp Login Page</h1>
-      <v-container>
-        <v-layout row>
-          <v-flex xs12 sm6 offset-sm3>
-            <v-card color="grey lighten-4">
-              <v-card-text>
-                <v-container>
-                  <form v-on:submit.prevent="loginUser()">
-                    <v-layout row>
-                      <v-flex xs8>
-                        <v-text-field 
-                          label="Email"
-                          v-model="loginDetails.email"
-                          type="email"
-                          single-line
-                          prepend-icon="email"
-                        ></v-text-field>
-                      </v-flex>
-                    </v-layout>
-                    <v-layout row>
-                      <v-flex xs8>
-                        <v-text-field
-                          label="Password"
-                          v-model="loginDetails.password"
-                          type="password"
-                          single-line
-                          prepend-icon="lock"
-                        ></v-text-field>
-                      </v-flex>
-                    </v-layout>
-                    <v-layout row>
-                      <v-flex xs12>
-                        <v-btn color="blue darken-1" type="submit" value="login">Login</v-btn>
-                        <scan>Not registered yet?</scan>
-                        <router-link to="/register">register</router-link>
-                      </v-flex>
-                    </v-layout>
-                  </form>
-                </v-container>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-      <router-link to="/">Go back</router-link>
-  </div> -->
+  <v-content>
+    <v-container fluid fill-height class="no-padding">
+      <v-layout row wrap>
+        <v-flex xs12 sm6 offset-sm3 mt-5>
+          <v-card color="grey lighten-4">
+            <v-card-text>
+              <v-container>
+                <form v-on:submit.prevent="loginUser()">
+                  <v-layout row>
+                    <v-flex xs8>
+                      <v-text-field label="Email" v-model="loginDetails.email" type="email" single-line prepend-icon="email" />
+                    </v-flex>
+                  </v-layout>
+                  <v-layout row>
+                    <v-flex xs8>
+                      <v-text-field label="Password" v-model="loginDetails.password" type="password" single-line prepend-icon="lock" />
+                    </v-flex>
+                  </v-layout>
+                  <v-layout row>
+                    <v-flex xs12>
+                      <v-btn color="blue darken-1" type="submit" value="login">Login</v-btn>
+                      Not yet registered?
+                      <router-link to="/register">Register now</router-link>
+                    </v-flex>
+                  </v-layout>
+                </form>
+              </v-container>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-content>
 </template>
-
-
-
-
 
 <script>
 import authentication from './Login/authentication'
-
 
 export default {
   data: function() {
