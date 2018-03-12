@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Vuetify from 'vuetify'
 import store from 'store/store.js'
 
-
+import Base from 'components/Base'
 import Home from 'components/Home'
 import Landing from 'components/Landing'
 import Admin from 'components/Admin'
@@ -14,11 +14,16 @@ import Register from 'components/Register'
 import authentication from 'components/Login/authentication'
 
 const routes = [
-  { path: '/', component: Home, meta: { requiresLogin: true } },
-  { path: '/admin', component: Admin, meta: { requiresLogin: true, requiresAdmin: true} },
-  { path: '/landing', component: Landing },
-  { path: '/login', component: Login },
-  { path: '/register', component: Register }
+  { path: '/', component: Base,
+    children: [
+      { path: 'conversations', component: Home, meta: { requiresLogin: true } },
+      { path: 'admin', component: Admin, meta: { requiresLogin: true, requiresAdmin: true} },
+      { path: '/', component: Landing },
+      { path: 'login', component: Login },
+      { path: 'register', component: Register }
+    ]
+  },
+
 ]
 
 Vue.use(VueRouter)
@@ -47,13 +52,6 @@ router.beforeEach((to, from, next) => {
 
 new Vue({
   el: '#app',
-  data: {
-    /*items: [
-      { icon: 'contacts', text: 'Contacts' },
-      { icon: 'history', text: 'Frequently contacted' },
-      { icon: 'settings', text: 'Settings' }
-    ]*/
-  },
   store,
   router,
   computed: {

@@ -2,11 +2,9 @@
   <div>
     <getMessageNotifications></getMessageNotifications>
     <mainUI>
-      <template slot="title">Demo Chat App</template>
       <template slot="drawer">
         <conversationsUI title="Friends" :items="items" :selectedItem.sync="selectedItem"></conversationsUI>
       </template>
-
       <showUser v-if="!!selectedUser" :selectedUser="selectedUser"></showUser>
     </mainUI>
   </div>
