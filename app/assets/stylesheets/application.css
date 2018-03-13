@@ -13,11 +13,3 @@
  *= require_tree .
  *= require_self
  */
- .landing_text {
-    font-size: 16pt;
-  }
-
-  .landing_title {
-    font-size: 24pt;
-    color: white;
-  }

@@ -7,8 +7,8 @@
         </v-avatar>
       </v-btn>
       <span class="hidden-xs-only">Vue Messenger</span>
-    </v-toolbar-title>
-    <findByEmail/>
+    </v-toolbar-title>    
+    <findByEmail v-if="loggedIn" />
     <div class="d-flex align-center" style="margin-left: auto">
       <template v-if="loggedIn">
         <span> Hi {{ user.email }}! </span>

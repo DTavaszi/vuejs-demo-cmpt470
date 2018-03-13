@@ -2,11 +2,14 @@
   <span>
     <span :class="{ hidden: !searching }" @click="toggle(false)" style="position: absolute; z-index: 0; width: 100%; height: 100vh; top: 0; left: 0" />
     <span>
-      <v-text-field v-model="email" @focus="toggle(true)" light solo prepend-icon="search" placeholder="Search" style="max-width: 500px; min-width: 128px"></v-text-field>
+      <v-text-field v-model="email" @focus="toggle(true)" light solo prepend-icon="search" placeholder="Find friends" style="max-width: 500px; min-width: 128px"></v-text-field>
       <ul  class="search-list" :class="{ hidden: !searching }">
         <li v-for="user in foundUsers" class="search-user">
-          <span style="line-height: 3em; padding-left: 10px;">
+          <span class="search-user-email">
             {{ user.email }}
+            <span v-if="isCurrentUser(user)" class="search-user-self">
+              (you)
+            </span>
           </span>
           <v-btn v-if="isFriend(user)" style="float: right;" color="red" @click="removeFriend(user)" small>✖ Friend</v-btn>
           <v-btn v-else-if="isRequesting(user)" style="float: right;" color="blue" @click="addFriend(user)" small> Requested </v-btn>
@@ -37,7 +40,9 @@ export default {
   },
   watch: {
     email: function(newEmail, oldEmail) {
-      this.message = "Waiting for you to stop typing..."
+      this.findUsersByEmail()
+    },
+    users: function(newUsers, oldUsers) {
       this.findUsersByEmail()
     }
   },
@@ -47,18 +52,7 @@ export default {
     },
     // Implement throttler like lodash _.debounce
     findUsersByEmail: function() {
-      if (this.email.length > 0) {
-        this.foundUsers = this.users.filter(usr => usr.email.match(this.email))
-
-        if (this.foundUsers.length > 0) {
-          this.message = 'There you go!'
-        } else {
-          this.message = 'Sorry, couldn\'t find any!'
-        }
-      } else {
-        this.foundUsers = []
-        this.message = 'Enter an email address'
-      }
+      this.foundUsers = this.users.filter(usr => usr.email.match(this.email))
     },
     addFriend: function(user) {
       friendsREST.addFriend(this, user)
@@ -75,6 +69,9 @@ export default {
     },
     isPending: function(user) {
       return this.$store.getters.friends_pending.find(friend => friend.sender_id == user.id)
+    },
+    isCurrentUser: function(user) {
+      return this.$store.getters.currentUser.id == user.id
     }
   }
 }
