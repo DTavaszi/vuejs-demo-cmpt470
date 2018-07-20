@@ -15,6 +15,9 @@ end
 
 VAGRANTFILE_API_VERSION = "2"
 
+# VueLoader error
+# https://github.com/rails/webpacker/issues/1453
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/xenial64"
 
@@ -28,8 +31,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # If there are issues, this port can be changed to something like 1234
   # But you have to start rails using "rails s -p 0.0.0.0"
   config.vm.network :forwarded_port, guest: 3000, host: 3000
-  config.vm.network :forwarded_port, guest: 3035, host: 3035
-
+  config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.synced_folder ".", "/vagrant"
   # Initial configuration - installs required apps
   config.vm.provision "shell", inline: <<-SHELL
     echo "-------------------- updating package lists"
@@ -38,12 +41,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     echo "-------------------- installing postgres"
     apt-get -y install postgresql
     apt-get -y install libpq-dev
-    echo "-------------------- creating postgres vagrant role with password vagrant"
-    # Create Role and login
-    sudo su postgres -c "psql -c \"CREATE ROLE vagrant SUPERUSER LOGIN PASSWORD 'vagrant'\""
-    echo "-------------------- creating wtm database"
+
     # Create WTM database
-    sudo su postgres -c "createdb -E UTF8 -T template0 --locale=en_US.utf8 -O vagrant wtm"
+    echo "-------------------- creating wtm database"
+    #sudo su postgres -c "createdb -E UTF8 -T template0 --locale=en_US.utf8 -O vagrant wtm"
     echo "-------------------- upgrading packages to latest"
     apt-get -y upgrade
     apt-get -y autoremove
@@ -64,12 +65,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
     echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 
-    # where the script should fail
-    # if it does, do 'vagrant ssh' and copy paste the rest in the terminal
-    # restart shell
-  SHELL
+    # fixes ruby/r not found error
+    echo Fix ruby/r not found error
+    git config --global core.autocrlf input
+    sudo apt install dos2unix
+    find ./ -type f -exec dos2unix {} \;
 
-  config.vm.provision "shell", inline: <<-SHELL
+    cd /vagrant
+    # install yarn
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+    sudo apt-get update && sudo apt-get install yarn
+
     # add 'install' option to rbenv
     git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 
@@ -77,27 +85,34 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     rbenv install --verbose 2.5.0
     rbenv global 2.5.0
 
+    # install yarn
+    sudo apt-get update && sudo apt-get install yarn
+    # update yarn
+    yarn install
+    # install webpacker:vue
+    bundle exec rails webpacker:install:vue
+
+
     # rails
     sudo gem install rails
 
     # working directory
-    cd vagrant
+    cd /vagrant
 
     # bundler for gems
     sudo apt-get -y install bundler
     bundle
+    bundle install
+
+    gem install foreman
 
     # nodejs is a dependency for running the server
+    echo install nodejs
     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash
     sudo apt-get -y install nodejs
 
-    # heroku
-    wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
-
-    # login to heroku
-    heroku login
-
-    # for symlinks to work, (installing webpacker), need to run terminal with admin privileges if running windows
-    # https://www.classandobjects.com/tutorial/using_vue_js_with_rails/ - for vue-js installation
+    # Create Role and login
+    #sudo -u postgres psql -c "CREATE ROLE vagrant SUPERUSER LOGIN PASSWORD 'vagrant'"
+    #sudo -u postgres psql -c "CREATE ROLE root SUPERUSER LOGIN PASSWORD 'vagrant'"
   SHELL
 end

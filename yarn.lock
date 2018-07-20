@@ -5860,9 +5860,9 @@ vue@^2.5.15:
   version "2.5.15"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.15.tgz#fdb67861dde967cd8d1b53116380f2f269b45202"
 
-vuetify@^0.17.7:
-  version "0.17.7"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-0.17.7.tgz#068c8210473643d45166ef9c5f6eb0ecf26bb5a5"
+vuetify@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.1.7.tgz#5d511d03397723961bace163a639f86e29dbe582"
 
 vuex-router-sync@^5.0.0:
   version "5.0.0"

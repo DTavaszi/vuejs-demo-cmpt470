@@ -12,6 +12,7 @@ import Login from 'components/Login'
 import Register from 'components/Register'
 
 import authentication from 'components/Login/authentication'
+import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 
 const routes = [
   { path: '/', component: Base,

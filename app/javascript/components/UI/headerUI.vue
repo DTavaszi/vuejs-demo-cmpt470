@@ -3,11 +3,11 @@
     <v-toolbar-title :style="$vuetify.breakpoint.smAndUp ? 'width: 300px; min-width: 250px' : 'min-width: 72px'" class="ml-0 pl-3">
       <v-btn :to="redirect_path" icon>
         <v-avatar size="32px" tile>
-          <img src="https://vuetifyjs.com/static/doc-images/logo.svg" alt="Vue Messenger">
+          <img src="https://vuetifyjs.com/static/doc-images/logo.svg" alt="">
         </v-avatar>
       </v-btn>
       <span class="hidden-xs-only">Vue Messenger</span>
-    </v-toolbar-title>    
+    </v-toolbar-title>
     <findByEmail v-if="loggedIn" />
     <div class="d-flex align-center" style="margin-left: auto">
       <template v-if="loggedIn">
